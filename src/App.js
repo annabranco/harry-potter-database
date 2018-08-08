@@ -14,6 +14,7 @@ class App extends Component {
       characters: [],
       searchString: ''
     }
+    this.searchCharacter = this.searchCharacter.bind(this);
   }
 
   componentDidMount() {
@@ -32,34 +33,45 @@ class App extends Component {
   );
 }
 
+searchCharacter(e) {
+  this.setState({
+    searchString: e.currentTarget.value
+  })
+}
+
 render() {
   return (
     <div className="App">
       <header className="header__box">
         <h1 className="header__title">Harry Potter Characters</h1>
-        <input type="text" className="header__searchField"/>
+        <input type="text" className="header__searchField" onChange={this.searchCharacter}/>
       </header>
       <main className="main__box">
         <ul className="main__cardsArea">
 
-          {this.state.characters.map(character => {
-            return (
-              <li className="characterCard">
-                    <img src={character.image} alt={character.name} className="characterCard__photo"/>
-                    <h2 className="characterCard__name">{character.name}</h2>
-                    <p className="characterCard__house">{character.house}</p>
-                  </li>
-)}
-          )}
+          {this.state.characters
+            .filter(character => {
+              return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
+            })
+            
+            .map(character => {
+              return (
+                <li className="characterCard">
+                  <img src={character.image} alt={character.name} className="characterCard__photo"/>
+                  <h2 className="characterCard__name">{character.name}</h2>
+                  <p className="characterCard__house">{character.house}</p>
+                </li>
+              )}
+            )}
 
-        </ul>
-      </main>
+          </ul>
+        </main>
 
 
-      <p>Hola</p>
-    </div>
-  );
-}
+        <p>Hola</p>
+      </div>
+    );
+  }
 }
 
 export default App;
