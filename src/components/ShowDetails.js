@@ -35,7 +35,6 @@ class ShowDetails extends React.Component {
 
     if (characterToDisplay.alive) {
       deadOrAlive = `VIV${genderEnding}`;
-      deadOrAliveIcon = '💜';
     } else {
       deadOrAlive = `MUERT${genderEnding}`;
       deadOrAliveIcon = '☠️';
@@ -52,7 +51,7 @@ class ShowDetails extends React.Component {
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
           </div>
           <div className="character__details--infoBox">
-            <h2 className="character__details--name">{characterToDisplay.name}</h2>
+            <h2 className="character__details--name">{characterToDisplay.name} <span className="status">{deadOrAliveIcon}</span></h2>
             <ul className="character__details--infoList">
               <li className="character__details--infoItem">
                 <p className="character__details--item">Casa: {characterToDisplay.house}</p>
@@ -65,7 +64,7 @@ class ShowDetails extends React.Component {
               </li>
               <li className="character__details--infoItem">
                 <p className="character__details--item">Estado: {deadOrAlive} </p>
-                <p className="character__details--infoItem status">{deadOrAliveIcon}</p>
+
               </li>
             </ul>
           </div>

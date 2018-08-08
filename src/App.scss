@@ -99,7 +99,7 @@
   display        : flex;
   flex-direction : column;
   align-items    : center;
-  justify-content: center;
+  justify-content: flex-start;
   background     : #e97636;
   color          : white;
 }
@@ -113,7 +113,7 @@
   width       : 100%;
   padding-left: 40px;
   text-align  : left;
-
+  margin      : 0;
 }
 
 .character__details--infoItem {
@@ -125,7 +125,8 @@
 }
 
 .status {
-  font-size   : 2rem;
-  margin      : 0;
-  padding-left: 70px;
+  font-size     : 2rem;
+  margin        : 0;
+  padding       : 0;
+  vertical-align: middle;
 }
