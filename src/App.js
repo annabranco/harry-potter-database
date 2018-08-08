@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Filters from './components/Filters';
+import CharacterList from './components/CharacterList';
+
 import './App.css';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
@@ -40,38 +43,20 @@ searchCharacter(e) {
 }
 
 render() {
+
   return (
+
     <div className="App">
-      <header className="header__box">
-        <h1 className="header__title">Harry Potter Characters</h1>
-        <input type="text" className="header__searchField" onChange={this.searchCharacter}/>
-      </header>
-      <main className="main__box">
-        <ul className="main__cardsArea">
 
-          {this.state.characters
-            .filter(character => {
-              return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
-            })
-            
-            .map(character => {
-              return (
-                <li className="characterCard">
-                  <img src={character.image} alt={character.name} className="characterCard__photo"/>
-                  <h2 className="characterCard__name">{character.name}</h2>
-                  <p className="characterCard__house">{character.house}</p>
-                </li>
-              )}
-            )}
+      <Filters searchCharacter={this.searchCharacter}/>
+      <CharacterList
+        characters={this.state.characters}
+        searchString={this.state.searchString}
+      />
 
-          </ul>
-        </main>
-
-
-        <p>Hola</p>
-      </div>
-    );
-  }
+    </div>
+  );
+}
 }
 
 export default App;
