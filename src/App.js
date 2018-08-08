@@ -14,9 +14,13 @@ class App extends Component {
 
     this.state = {
       characters: [],
-      searchString: ''
+      searchString: '',
+      searchResults:[]
     }
+
     this.searchCharacter = this.searchCharacter.bind(this);
+    this.filterCharacters = this.filterCharacters.bind(this);
+
   }
 
   componentDidMount() {
@@ -30,32 +34,53 @@ class App extends Component {
       this.setState({
         characters: responseJson
       })
-      this.setCharactersId();
+      this.manageComplementaryData();
     }
   );
 }
 
-setCharactersId() { //Determines characters' IDs and updates state
+manageComplementaryData() { //Manages ID, incomplete data and other information
   const charactersArray = this.state.characters;
   for (const character of charactersArray) {
 
+    //======== Determines characters' IDs and updates state
     let characterNameId = character.name;
-    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase(); //id ex: harry-potter
+    //-- Generates ID based on character's name. ex: harry-potter
+    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
+
+    //-- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
     character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
 
+    //======== Manages empty House information
     if (character.house === '') {
       character.house = 'SIN CASA';
-  }
-}
+    }
+    //======== Manages empty Patronus information
+    if (character.patronus === '') {
+      character.patronus = 'Desconocido o inexistente';
+    }
 
+  }
   this.setState({
     characters: charactersArray
   })
 }
 
 searchCharacter(e) {
+  console.log(e.currentTarget.value);
   this.setState({
     searchString: e.currentTarget.value
+  })
+  setTimeout(this.filterCharacters,1); // Without Timeout, the filterCharacters method doesn't get the updated searchString value. I can't solve it any other way.
+}
+
+//======== Filter characters by the input value (ignores case)
+filterCharacters() {
+  const searchResults = this.state.characters.filter(character => {
+    return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
+  })
+    this.setState({
+    searchResults: searchResults
   })
 }
 
@@ -72,6 +97,7 @@ render() {
             searchCharacter={this.searchCharacter}
             characters={this.state.characters}
             searchString={this.state.searchString}
+            searchResults={this.state.searchResults}
           />}
         />
         <Route path='/character/:id' render={
@@ -85,6 +111,10 @@ render() {
 
     </div>
   );
+}
+
+componentWillUnmout() {
+  localStorage.setItem("API-Harry Potter search string", this.state.searchString);
 }
 }
 

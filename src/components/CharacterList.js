@@ -13,6 +13,7 @@ class CharacterList extends React.Component {
           <CharacterCard
             characters={this.props.characters}
             searchString={this.props.searchString}
+            searchResults={this.props.searchResults}
           />
 
         </ul>

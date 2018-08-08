@@ -10,10 +10,14 @@ class ShowCharacters extends React.Component {
     return (
 
       <React.Fragment>
-        <Filters searchCharacter={this.props.searchCharacter}/>
+        <Filters
+          searchCharacter={this.props.searchCharacter}
+          searchString={this.props.searchString}
+        />
         <CharacterList
           characters={this.props.characters}
           searchString={this.props.searchString}
+          searchResults={this.props.searchResults}
         />
       </React.Fragment>
 

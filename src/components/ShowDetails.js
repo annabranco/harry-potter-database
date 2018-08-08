@@ -9,7 +9,7 @@ import Hogwarts from '../images/hogwarts.png';
 
 let characterToDisplay;
 let deadOrAlive;
-let deadOrAliveIcon;
+let deadIcon;
 let housePicture;
 
 class ShowDetails extends React.Component {
@@ -23,29 +23,33 @@ class ShowDetails extends React.Component {
     this.getCharacter();
   }
 
+// Identifies selected character to print her/his details
   getCharacter() {
     for (const character of this.props.characters) {
-      if (character.id === this.props.match.params.id) {
+      if (character.id === this.props.match.params.id) { //Compares IDs
         characterToDisplay = character;
       }
     }
 
+// Determines ending of adjectives for Spanish gender reference
     let genderEnding;
     if (characterToDisplay.gender === 'female') {
-      genderEnding = 'A';
+      genderEnding = 'a';
     } else {
-      genderEnding = 'O';
+      genderEnding = 'o';
     }
 
+    // Determines Spanish adjective for deceased character and adds an Icon
     if (characterToDisplay.alive) {
-      deadOrAlive = `VIV${genderEnding}`;
-      deadOrAliveIcon = '';
+      deadOrAlive = `viv${genderEnding}`;
+      deadIcon = '';
     } else {
-      deadOrAlive = `MUERT${genderEnding}`;
-      deadOrAliveIcon = '☠️';
+      deadOrAlive = `muert${genderEnding}`;
+      deadIcon = '☠️';
 
     }
 
+//Determines image of the House crest to print it on the info box
       if (characterToDisplay.house === 'Gryffindor') {
       housePicture = Gryffindor;
     } else if (characterToDisplay.house === 'Hufflepuff') {
@@ -58,7 +62,6 @@ class ShowDetails extends React.Component {
       housePicture = Hogwarts;
 
     }
-    console.log(housePicture);
   }
 
   render () {
@@ -70,7 +73,7 @@ class ShowDetails extends React.Component {
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
           </div>
           <div className="character__details--infoBox">
-            <h2 className="character__details--name">{characterToDisplay.name} <span className="status">{deadOrAliveIcon}</span></h2>
+            <h2 className="character__details--name">{characterToDisplay.name} <span className="status">{deadIcon}</span></h2>
             <ul className="character__details--infoList">
               <li className="character__details--infoItem">
                 <p className="character__details--item">Casa: {characterToDisplay.house}</p>
@@ -82,7 +85,7 @@ class ShowDetails extends React.Component {
                 <p className="character__details--item">Patronus: {characterToDisplay.patronus.charAt(0).toUpperCase() + characterToDisplay.patronus.slice(1)}</p>
               </li>
               <li className="character__details--infoItem">
-                <p className="character__details--item">Estado: {deadOrAlive} </p>
+                <p className="character__details--item">Estado: {deadOrAlive.toUpperCase()} </p>
               </li>
               <li className="character__details--infoItem">
                 <img className="house__crest" src={housePicture} alt={characterToDisplay.house} />
@@ -96,7 +99,6 @@ class ShowDetails extends React.Component {
           <p className="text__back">Volver</p>
         </Link>
       </div>
-
 
     </React.Fragment>
   );
