@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class CharacterCard extends React.Component {
 
@@ -14,24 +16,22 @@ class CharacterCard extends React.Component {
           })
 
           .map(character => {
-
-              let characterId = character.name;
-              characterId = characterId.replace(/ /g,'').toLowerCase();
-
             return (
-              <li className="characterCard" key={characterId} id={characterId}>
+              <Link to={'character/' + character.id}>
+              <li className="characterCard" key={character.id} id={character.id}>
                 <img src={character.image} alt={character.name} className="characterCard__photo"/>
                 <h2 className="characterCard__name">{character.name}</h2>
                 <p className="characterCard__house">{character.house}</p>
               </li>
-            )}
+            </Link>
           )}
+        )}
 
-        </React.Fragment>
+      </React.Fragment>
 
-      );
-    }
-
+    );
   }
 
-  export default CharacterCard;
+}
+
+export default CharacterCard;

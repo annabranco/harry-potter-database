@@ -6,11 +6,7 @@ class Filters extends React.Component {
 
     return (
 
-      <header className="header__box">
-        <h1 className="header__title">Harry Potter Characters</h1>
         <input type="text" className="header__searchField" onChange={this.props.searchCharacter}/>
-      </header>
-
 
     );
   }

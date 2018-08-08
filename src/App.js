@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Filters from './components/Filters';
-import CharacterList from './components/CharacterList';
-
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import ShowCharacters from './components/ShowCharacters';
+import ShowDetails from './components/ShowDetails';
 import './App.css';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
 
-
 class App extends Component {
 
   constructor(props) {
-
     super(props)
 
     this.state = {
@@ -28,12 +27,25 @@ class App extends Component {
     fetch(url)
     .then (response => response.json())
     .then (responseJson => {
-      console.log(responseJson);
       this.setState({
         characters: responseJson
       })
+      this.setCharactersId();
     }
   );
+}
+
+setCharactersId() {
+  const charactersArray = this.state.characters;
+  for (const character of charactersArray) {
+
+    let characterNameId = character.name;
+    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
+    character.id = characterNameId;
+  }
+  this.setState({
+    characters: charactersArray
+  })
 }
 
 searchCharacter(e) {
@@ -48,11 +60,23 @@ render() {
 
     <div className="App">
 
-      <Filters searchCharacter={this.searchCharacter}/>
-      <CharacterList
-        characters={this.state.characters}
-        searchString={this.state.searchString}
-      />
+      <Header />
+      <Switch>
+        <Route exact path='/' render={
+          () => <ShowCharacters
+            searchCharacter={this.searchCharacter}
+            characters={this.state.characters}
+            searchString={this.state.searchString}
+          />}
+        />
+        <Route path='/character/:id' render={
+          (props) => <ShowDetails
+            match={props.match}
+            characters={this.state.characters}
+          />}
+        />
+      </Switch>
+
 
     </div>
   );
