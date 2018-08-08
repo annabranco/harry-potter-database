@@ -11,13 +11,27 @@
   font-size: 0.9rem; }
 
 .main__box {
-  width: 80vw; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 40px; }
 
 .main__cardsArea {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  padding: 0; }
+  grid-template-columns: 220px;
+  grid-gap: 20px;
+  padding: 0;
+  margin: 0 auto; }
+  @media all and (min-width: 460px) {
+    .main__cardsArea {
+      grid-template-columns: repeat(2, 220px); } }
+  @media all and (min-width: 700px) {
+    .main__cardsArea {
+      grid-template-columns: repeat(3, 220px); } }
+  @media all and (min-width: 940px) {
+    .main__cardsArea {
+      grid-template-columns: repeat(4, 220px); } }
 
 .characterCard {
   list-style: none;
