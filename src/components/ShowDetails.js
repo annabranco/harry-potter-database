@@ -39,6 +39,7 @@ class ShowDetails extends React.Component {
 
     if (characterToDisplay.alive) {
       deadOrAlive = `VIV${genderEnding}`;
+      deadOrAliveIcon = '';
     } else {
       deadOrAlive = `MUERT${genderEnding}`;
       deadOrAliveIcon = '☠️';

@@ -35,13 +35,14 @@ class App extends Component {
   );
 }
 
-setCharactersId() {
+setCharactersId() { //Determines characters' IDs and updates state
   const charactersArray = this.state.characters;
   for (const character of charactersArray) {
 
     let characterNameId = character.name;
-    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
-    character.id = characterNameId;
+    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase(); //id ex: harry-potter
+    character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
+
     if (character.house === '') {
       character.house = 'SIN CASA';
   }
