@@ -6,7 +6,7 @@ class Filters extends React.Component {
 
     return (
 
-        <input type="text" className="header__searchField" onChange={this.props.searchCharacter} placeholder="Filtrar por nombre" defaultValue={this.props.searchString}/>
+      <input type="text" className="header__searchField" onChange={this.props.searchCharacter} placeholder="Filtrar por nombre" defaultValue={this.props.searchString}/>
 
     );
   }

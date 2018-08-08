@@ -79,7 +79,7 @@ filterCharacters() {
   const searchResults = this.state.characters.filter(character => {
     return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
   })
-    this.setState({
+  this.setState({
     searchResults: searchResults
   })
 }

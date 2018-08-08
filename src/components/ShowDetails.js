@@ -23,7 +23,7 @@ class ShowDetails extends React.Component {
     this.getCharacter();
   }
 
-// Identifies selected character to print her/his details
+  // Identifies selected character to print her/his details
   getCharacter() {
     for (const character of this.props.characters) {
       if (character.id === this.props.match.params.id) { //Compares IDs
@@ -31,7 +31,7 @@ class ShowDetails extends React.Component {
       }
     }
 
-// Determines ending of adjectives for Spanish gender reference
+    // Determines ending of adjectives for Spanish gender reference
     let genderEnding;
     if (characterToDisplay.gender === 'female') {
       genderEnding = 'a';
@@ -49,8 +49,8 @@ class ShowDetails extends React.Component {
 
     }
 
-//Determines image of the House crest to print it on the info box
-      if (characterToDisplay.house === 'Gryffindor') {
+    //Determines image of the House crest to print it on the info box
+    if (characterToDisplay.house === 'Gryffindor') {
       housePicture = Gryffindor;
     } else if (characterToDisplay.house === 'Hufflepuff') {
       housePicture = Hufflepuff;

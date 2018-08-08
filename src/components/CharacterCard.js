@@ -9,9 +9,9 @@ class CharacterCard extends React.Component {
     if (this.props.searchString !== '' && this.props.searchResults.length === 0) {
       return (
         <React.Fragment>
-        <p className="no__results">Su filtro no retornó ningún resultado</p>
-        <img src="https://cdn.dribbble.com/users/476102/screenshots/2444896/hogwarts.gif" alt="No results" className="no__results--image"/>
-      </React.Fragment>
+          <p className="no__results">Su filtro no retornó ningún resultado</p>
+          <img src="https://cdn.dribbble.com/users/476102/screenshots/2444896/hogwarts.gif" alt="No results" className="no__results--image"/>
+        </React.Fragment>
 
       );
     } else {
