@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Gryffindor from '../images/gryffindor.png';
+import Hufflepuff from '../images/hufflepuff.png';
+import Ravenclaw from '../images/ravenclaw.png';
+import Slytherin from '../images/slytherin.png';
+import Hogwarts from '../images/hogwarts.png';
 
 
 let characterToDisplay;
 let deadOrAlive;
 let deadOrAliveIcon;
+let housePicture;
 
 class ShowDetails extends React.Component {
   constructor(props) {
@@ -24,8 +30,6 @@ class ShowDetails extends React.Component {
       }
     }
 
-    console.log(characterToDisplay);
-
     let genderEnding;
     if (characterToDisplay.gender === 'female') {
       genderEnding = 'A';
@@ -40,6 +44,20 @@ class ShowDetails extends React.Component {
       deadOrAliveIcon = '☠️';
 
     }
+
+      if (characterToDisplay.house === 'Gryffindor') {
+      housePicture = Gryffindor;
+    } else if (characterToDisplay.house === 'Hufflepuff') {
+      housePicture = Hufflepuff;
+    } else if (characterToDisplay.house === 'Ravenclaw') {
+      housePicture = Ravenclaw;
+    } else if (characterToDisplay.house === 'Slytherin') {
+      housePicture = Slytherin;
+    } else {
+      housePicture = Hogwarts;
+
+    }
+    console.log(housePicture);
   }
 
   render () {
@@ -64,7 +82,9 @@ class ShowDetails extends React.Component {
               </li>
               <li className="character__details--infoItem">
                 <p className="character__details--item">Estado: {deadOrAlive} </p>
-
+              </li>
+              <li className="character__details--infoItem">
+                <img className="house__crest" src={housePicture} alt={characterToDisplay.house} />
               </li>
             </ul>
           </div>
@@ -73,13 +93,13 @@ class ShowDetails extends React.Component {
           <Link to='/' className="link back--box">
           <img src="http://31.media.tumblr.com/43d83cd18ae6a18ead69bef818b3bd02/tumblr_n5zkaohA5s1rff386o1_500.gif" alt="" className="photo__back"/>
           <p className="text__back">Volver</p>
-      </Link>
-    </div>
+        </Link>
+      </div>
 
 
-      </React.Fragment>
-    );
-  }
+    </React.Fragment>
+  );
+}
 
 }
 
