@@ -42,7 +42,11 @@ setCharactersId() {
     let characterNameId = character.name;
     characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
     character.id = characterNameId;
+    if (character.house === '') {
+      character.house = 'SIN CASA';
   }
+}
+
   this.setState({
     characters: charactersArray
   })

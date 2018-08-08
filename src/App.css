@@ -1,2 +1,106 @@
 .App {
-  text-align: center; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.header__searchField {
+  border: 1px solid;
+  width: 300px;
+  padding: 5px;
+  font-size: 1.1rem; }
+
+.main__box {
+  width: 80vw; }
+
+.main__cardsArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px; }
+
+.characterCard {
+  list-style: none;
+  border: 1px solid;
+  width: 220px;
+  height: 380px; }
+
+.characterCard__photo-box,
+.character__details--photoBox {
+  height: 270px;
+  background-position: top left 50%;
+  background-size: cover; }
+
+.characterCard__photo {
+  height: 0;
+  width: 0; }
+
+.characterCard__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  background: #e97636;
+  color: white; }
+
+.characterCard__name {
+  font-size: 1.2rem; }
+
+.characterCard__house {
+  font-size: 0.8rem; }
+
+.link {
+  text-decoration: none; }
+
+.back--box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40vw; }
+
+.photo__back {
+  text-align: center;
+  margin-top: 40px;
+  width: 20%; }
+
+.text__back {
+  margin: 0;
+  color: #d1d1d1; }
+
+.character__details--box {
+  display: grid;
+  grid-template-columns: 1.3fr 3fr;
+  border: 1px solid;
+  width: 40vw; }
+
+.character__details--photo {
+  height: 0;
+  width: 0; }
+
+.character__details--infoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #e97636;
+  color: white; }
+
+.character__details--name {
+  font-size: 1.2rem; }
+
+.character__details--infoList {
+  width: 100%;
+  padding-left: 40px;
+  text-align: left; }
+
+.character__details--infoItem {
+  list-style: none; }
+
+.character__details--item {
+  font-size: 0.9rem; }
+
+.status {
+  font-size: 2rem;
+  margin: 0;
+  padding-left: 70px; }

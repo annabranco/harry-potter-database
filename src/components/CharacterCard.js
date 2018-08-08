@@ -17,11 +17,15 @@ class CharacterCard extends React.Component {
 
           .map(character => {
             return (
-              <Link to={'character/' + character.id}>
+              <Link to={'character/' + character.id} className="link">
               <li className="characterCard" key={character.id} id={character.id}>
-                <img src={character.image} alt={character.name} className="characterCard__photo"/>
-                <h2 className="characterCard__name">{character.name}</h2>
-                <p className="characterCard__house">{character.house}</p>
+                <div className="characterCard__photo-box" style={{backgroundImage: "url(" + character.image + ")"}}>
+                  <img src={character.image} alt={character.name} className="characterCard__photo"/>
+                </div>
+                <div className="characterCard__info">
+                    <h2 className="characterCard__name">{character.name}</h2>
+                    <p className="characterCard__house">{character.house}</p>
+                </div>
               </li>
             </Link>
           )}
