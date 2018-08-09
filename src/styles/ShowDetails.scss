@@ -1,0 +1,75 @@
+.back--box {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  width          : 40vw;
+}
+
+.photo__back {
+  text-align: center;
+  margin-top: 40px;
+  width     : 20%;
+}
+
+.text__back {
+  margin: 0;
+  color : #d1d1d1;
+}
+
+.character__details--box {
+  display              : grid;
+  grid-template-columns: 1.3fr 3fr;
+  border               : 1px solid;
+  width                : 40vw;
+}
+
+.character__details--photo {
+  height: 0;
+  width : 0;
+}
+
+.character__details--infoBox {
+  position       : relative;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: flex-start;
+  background     : #e97636;
+  color          : white;
+  overflow       : hidden;
+}
+
+.character__details--name {
+  font-size: 1.2rem;
+}
+
+.character__details--infoList {
+  width       : 100%;
+  padding-left: 40px;
+  text-align  : left;
+  margin      : 0;
+}
+
+.character__details--infoItem {
+  list-style: none;
+}
+
+.character__details--item {
+  font-size: 0.9rem;
+}
+
+.status {
+  font-size     : 2rem;
+  margin        : 0;
+  padding       : 0;
+  vertical-align: middle;
+}
+
+.house__crest {
+  position: absolute;
+  bottom  : -20px;
+  right   : -30px;
+  width   : 60%;
+  opacity : 0.1;
+}

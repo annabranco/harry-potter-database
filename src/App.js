@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
-import './App.css';
+import './styles/App.css';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
 

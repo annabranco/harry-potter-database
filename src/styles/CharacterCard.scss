@@ -1,0 +1,49 @@
+.characterCard {
+  list-style: none;
+  border    : 1px solid;
+  width     : 220px;
+  height    : 380px;
+}
+
+.characterCard__photo-box,
+.character__details--photoBox {
+  height             : 270px;
+  background-position: top left 50%;
+  background-size    : cover;
+}
+
+.characterCard__photo {
+  height: 0;
+  width : 0;
+}
+
+.characterCard__info {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  height         : 110px;
+  background     : #e97636;
+  color          : white;
+}
+
+.characterCard__name {
+  font-size: 1.2rem;
+}
+
+.characterCard__house {
+  font-size: 0.8rem;
+}
+
+.no__results {
+  grid-column: span 4;
+  text-align : center;
+  font-style : italic;
+}
+
+.no__results--image {
+  grid-column: span 4;
+  width      : 40%;
+  margin     : 0 auto;
+  opacity    : 0.6;
+}

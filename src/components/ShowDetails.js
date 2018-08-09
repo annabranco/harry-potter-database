@@ -5,12 +5,12 @@ import Hufflepuff from '../images/hufflepuff.png';
 import Ravenclaw from '../images/ravenclaw.png';
 import Slytherin from '../images/slytherin.png';
 import Hogwarts from '../images/hogwarts.png';
+import '../styles/ShowDetails.css';
 
 
 let characterToDisplay;
-let deadOrAlive;
-let deadIcon;
 let housePicture;
+let deadIcon;
 
 class ShowDetails extends React.Component {
   constructor(props) {
@@ -49,7 +49,6 @@ class ShowDetails extends React.Component {
       housePicture = Slytherin;
     } else {
       housePicture = Hogwarts;
-
     }
   }
 
@@ -62,7 +61,7 @@ class ShowDetails extends React.Component {
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
           </div>
           <div className="character__details--infoBox">
-            <h2 className="character__details--name">{characterToDisplay.name} <span className="status">{deadIcon}</span></h2>
+            <h2 className="character__details--name"><span className="status">{deadIcon}</span> {characterToDisplay.name}</h2>
             <ul className="character__details--infoList">
               <li className="character__details--infoItem">
                 <p className="character__details--item">Casa: {characterToDisplay.house}</p>
@@ -84,15 +83,13 @@ class ShowDetails extends React.Component {
         </div>
         <div className="back--box">
           <Link to='/' className="link back--box">
-          <img src="http://31.media.tumblr.com/43d83cd18ae6a18ead69bef818b3bd02/tumblr_n5zkaohA5s1rff386o1_500.gif" alt="" className="photo__back"/>
-          <p className="text__back">Volver</p>
-        </Link>
-      </div>
-
-    </React.Fragment>
-  );
-}
-
+            <img src="http://31.media.tumblr.com/43d83cd18ae6a18ead69bef818b3bd02/tumblr_n5zkaohA5s1rff386o1_500.gif" alt="" className="photo__back"/>
+            <p className="text__back">Volver</p>
+          </Link>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
 export default ShowDetails;
