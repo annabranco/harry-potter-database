@@ -25,12 +25,10 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem('API Harry Potter DB search')) {
-      alert('LS');
       this.setState({
         characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
       })
     } else {
-      alert('noLS');
       this.fetchCharacters();
     }
   }
@@ -73,14 +71,12 @@ class App extends Component {
     characters: charactersArray
   });
   //======== Saves to localStorage
-  console.log('Saving to LS');
   localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
-  console.log('Saved to LS',localStorage.getItem('API Harry Potter DB search'));
+
 
 }
 
 searchCharacter(e) {
-  console.log(e.currentTarget.value);
   this.setState({
     searchString: e.currentTarget.value
   })
