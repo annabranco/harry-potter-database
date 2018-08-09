@@ -20,19 +20,26 @@ class App extends Component {
 
     this.searchCharacter = this.searchCharacter.bind(this);
     this.filterCharacters = this.filterCharacters.bind(this);
-
   }
 
   componentDidMount() {
+    
     //======== Verifica si ya existe el resultado del fetch en el state
     if (this.state.characters.length > 0) {
       this.manageComplementaryData();
+    }
+    //======== Verifica si ya existe el resultado del fetch en localStorage
+    if (localStorage.getItem('API Harry Potter DB search')) {
+      this.setState({
+        characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
+      })
     } else {
       this.fetchCharacters();
     }
   }
 
   fetchCharacters() {
+    alert('fetching');
     fetch(url)
     .then (response => response.json())
     .then (responseJson => {
@@ -64,15 +71,16 @@ manageComplementaryData() { //Manages ID, incomplete data and other information
     if (character.patronus === '') {
       character.patronus = 'Desconocido o inexistente';
     }
-
   }
+
   this.setState({
     characters: charactersArray
-  })
+  });
+  //======== Saves to localStorage
+  localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
 }
 
 searchCharacter(e) {
-  console.log(e.currentTarget.value);
   this.setState({
     searchString: e.currentTarget.value
   })
@@ -116,10 +124,6 @@ render() {
 
     </div>
   );
-}
-
-componentWillUnmout() {
-  localStorage.setItem("API-Harry Potter search string", this.state.searchString);
 }
 }
 
