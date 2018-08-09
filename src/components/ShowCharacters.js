@@ -13,11 +13,14 @@ class ShowCharacters extends React.Component {
         <Filters
           searchCharacter={this.props.searchCharacter}
           searchString={this.props.searchString}
+          filterByHouse={this.props.filterByHouse}
         />
         <CharacterList
           characters={this.props.characters}
           searchString={this.props.searchString}
           searchResults={this.props.searchResults}
+          filterCharacters={this.props.filterCharacters}
+          searchByHouse={this.props.searchByHouse}
         />
       </React.Fragment>
 

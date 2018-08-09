@@ -20,9 +20,8 @@ class CharacterCard extends React.Component {
         <React.Fragment>
 
           {this.props.characters
-            .filter(character => {
-              return character.name.toLowerCase().includes(this.props.searchString.toLowerCase())
-            })
+            .filter(character => character.name.toLowerCase().includes(this.props.searchString.toLowerCase()))
+            .filter(character => character.house.includes(this.props.searchByHouse))
             .map(character => {
               return (
                 <Link to={'character/' + character.id} className="link">

@@ -15,15 +15,18 @@ class App extends Component {
     this.state = {
       characters: [],
       searchString: '',
-      searchResults:[]
+      searchResults:[],
+      searchByHouse: ''
     }
 
     this.searchCharacter = this.searchCharacter.bind(this);
     this.filterCharacters = this.filterCharacters.bind(this);
+    this.filterByHouse = this.filterByHouse.bind(this);
+
   }
 
   componentDidMount() {
-    
+
     //======== Verifica si ya existe el resultado del fetch en el state
     if (this.state.characters.length > 0) {
       this.manageComplementaryData();
@@ -87,15 +90,33 @@ searchCharacter(e) {
   setTimeout(this.filterCharacters,1); // Without Timeout, the filterCharacters method doesn't get the updated searchString value. I can't solve it any other way.
 }
 
-//======== Filter characters by the input value (ignores case)
-filterCharacters() {
-  const searchResults = this.state.characters.filter(character => {
-    return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
-  })
-  this.setState({
-    searchResults: searchResults
-  })
+temp() {
 }
+
+//======== Filter characters
+filterCharacters() {
+
+  //---- Filters by name (ignores case) - input
+  const searchResultsbyName = this.state.characters.filter(character => {
+    return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
+  });
+
+  //---- Filters by house - select
+  const searchResultsbyHouse = searchResultsbyName.filter(character => character.house === this.state.searchByHouse
+);
+this.setState({
+  searchResults: searchResultsbyHouse
+});
+return searchResultsbyHouse;
+}
+
+filterByHouse(e) {
+  this.setState({
+    searchByHouse: e.currentTarget.value
+  })
+  this.filterCharacters();
+}
+
 
 render() {
 
@@ -111,6 +132,9 @@ render() {
             characters={this.state.characters}
             searchString={this.state.searchString}
             searchResults={this.state.searchResults}
+            filterCharacters={this.filterCharacters}
+            filterByHouse={this.filterByHouse}
+            searchByHouse={this.state.searchByHouse}
           />}
         />
         <Route path='/character/:id' render={
