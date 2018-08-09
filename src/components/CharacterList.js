@@ -16,6 +16,7 @@ class CharacterList extends React.Component {
             searchResults={this.props.searchResults}
             filterCharacters={this.props.filterCharacters}
             searchByHouse={this.props.searchByHouse}
+            searchCharactersIsAlive={this.props.searchCharactersIsAlive}
           />
 
         </ul>

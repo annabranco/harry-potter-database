@@ -16,13 +16,15 @@ class App extends Component {
       characters: [],
       searchString: '',
       searchResults:[],
-      searchByHouse: ''
+      searchByHouse: '',
+      searchAliveOrDead: {alive: true, dead: true}, //[display alive, display dead]
+      searchCharactersIsAlive: ''
     }
 
     this.searchCharacter = this.searchCharacter.bind(this);
     this.filterCharacters = this.filterCharacters.bind(this);
     this.filterByHouse = this.filterByHouse.bind(this);
-
+    this.filterByDead = this.filterByDead.bind(this);
   }
 
   componentDidMount() {
@@ -74,11 +76,27 @@ manageComplementaryData() { //Manages ID, incomplete data and other information
     if (character.patronus === '') {
       character.patronus = 'Desconocido o inexistente';
     }
+    //======== Set "estado" (vivo/a o muerto/a) in Spanish language
+    //---- Determines ending of adjectives for Spanish gender reference
+    let genderEnding;
+    if (character.gender === 'female') {
+      genderEnding = 'a';
+    } else {
+      genderEnding = 'o';
+    }
+    //---- Determines the correct adjective in Spanish
+    if (character.alive) {
+      character.estado = `viv${genderEnding}`;
+    } else {
+      character.estado = `muert${genderEnding}`;
+    }
   }
 
+  //======== Save all info on the state
   this.setState({
     characters: charactersArray
   });
+
   //======== Saves to localStorage
   localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
 }
@@ -97,26 +115,55 @@ temp() {
 filterCharacters() {
 
   //---- Filters by name (ignores case) - input
-  const searchResultsbyName = this.state.characters.filter(character => {
-    return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
+  const searchResultsbyName = this.state.characters.filter(character => { return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
   });
 
   //---- Filters by house - select
-  const searchResultsbyHouse = searchResultsbyName.filter(character => character.house === this.state.searchByHouse
+  const searchResultsbyHouse = searchResultsbyName.filter(character => character.house.includes(this.state.searchByHouse)
 );
+
+//---- Filters by alive and/or deceased - checkbox
+const finalSearch = searchResultsbyHouse.filter(character => character.estado.includes(this.state.searchCharactersIsAlive)
+);
+
 this.setState({
-  searchResults: searchResultsbyHouse
+  searchResults: finalSearch
 });
-return searchResultsbyHouse;
+
 }
 
 filterByHouse(e) {
-  this.setState({
-    searchByHouse: e.currentTarget.value
-  })
-  this.filterCharacters();
+
+const eventValue = e.currentTarget.value;
+
+  setTimeout(() => {
+    this.setState({ searchByHouse: eventValue });
+    this.filterCharacters();
+  },1);
+
 }
 
+filterByDead(e) {
+
+  //---- determines on searchAliveOrDead state what conditions are to me met (dead/aline)
+  this.setState({
+    searchAliveOrDead: { ...this.state.searchAliveOrDead, [e.currentTarget.name]: e.currentTarget.checked }
+  })
+
+  //--- verifies what above conditions are to be met and and saves to state a search string for dead and/or alive
+  setTimeout(() => { // Trying ternary conditional...
+    this.state.searchAliveOrDead.alive && this.state.searchAliveOrDead.dead
+    ? this.setState({ searchCharactersIsAlive: '' })
+    : this.state.searchAliveOrDead.alive
+    ? this.setState({ searchCharactersIsAlive: 'viv' })
+    : this.state.searchAliveOrDead.dead
+    ? this.setState({ searchCharactersIsAlive: 'muert' })
+    : this.setState({ searchCharactersIsAlive: 'no one' })
+
+    this.filterCharacters();
+  },1);
+
+}
 
 render() {
 
@@ -135,6 +182,8 @@ render() {
             filterCharacters={this.filterCharacters}
             filterByHouse={this.filterByHouse}
             searchByHouse={this.state.searchByHouse}
+            filterByDead={this.filterByDead}
+            searchCharactersIsAlive={this.state.searchCharactersIsAlive}
           />}
         />
         <Route path='/character/:id' render={

@@ -31,22 +31,11 @@ class ShowDetails extends React.Component {
       }
     }
 
-    // Determines ending of adjectives for Spanish gender reference
-    let genderEnding;
-    if (characterToDisplay.gender === 'female') {
-      genderEnding = 'a';
-    } else {
-      genderEnding = 'o';
-    }
-
-    // Determines Spanish adjective for deceased character and adds an Icon
+    // Determines Icon fon deceased
     if (characterToDisplay.alive) {
-      deadOrAlive = `viv${genderEnding}`;
       deadIcon = '';
     } else {
-      deadOrAlive = `muert${genderEnding}`;
       deadIcon = '☠️';
-
     }
 
     //Determines image of the House crest to print it on the info box
