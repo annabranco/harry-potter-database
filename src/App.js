@@ -24,7 +24,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchCharacters();
+    //======== Verifica si ya existe el resultado del fetch en el state
+    if (this.state.characters.length > 0) {
+      this.manageComplementaryData();
+    } else {
+      this.fetchCharacters();
+    }
   }
 
   fetchCharacters() {
