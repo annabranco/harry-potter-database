@@ -28,7 +28,10 @@ añadirle uno nosotras
 ## 5. BONUS: Mejoras visuales
 
 Para terminar, podéis realizar algunas mejoras visuales del ejercicio. Por ejemplo:
-mostrar la casa y si un personajes está muerto con un icono usar algún sistema de grid para pintar el listado de personajes que funcione bien el responsive en dispositivos pequeños
+
+* mostrar la casa y si un personajes está muerto con un icono 
+* usar algún sistema de grid para pintar el listado de personajes 
+* que funcione bien el responsive en dispositivos pequeños
 
 ### Entrega
 La entrega del ejercicio se realizará en el mismo repositorio que has creado al comienzo del ejercicio. Hemos pautado 12 horas de dedicación al ejercicio, por lo que el límite de entrega es
