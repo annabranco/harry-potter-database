@@ -24,46 +24,59 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchCharacters();
-  }
-
-  fetchCharacters() {
-    fetch(url)
-    .then (response => response.json())
-    .then (responseJson => {
+    if (localStorage.getItem('API Harry Potter DB search')) {
+      alert('LS');
       this.setState({
-        characters: responseJson
+        characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
       })
-      this.manageComplementaryData();
+    } else {
+      alert('noLS');
+      this.fetchCharacters();
     }
-  );
-}
-
-manageComplementaryData() { //Manages ID, incomplete data and other information
-  const charactersArray = this.state.characters;
-  for (const character of charactersArray) {
-
-    //======== Determines characters' IDs and updates state
-    let characterNameId = character.name;
-    //-- Generates ID based on character's name. ex: harry-potter
-    characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
-
-    //-- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
-    character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
-
-    //======== Manages empty House information
-    if (character.house === '') {
-      character.house = 'SIN CASA';
-    }
-    //======== Manages empty Patronus information
-    if (character.patronus === '') {
-      character.patronus = 'Desconocido o inexistente';
-    }
-
   }
+
+    fetchCharacters() {
+      fetch(url)
+      .then (response => response.json())
+      .then (responseJson => {
+        this.setState({
+          characters: responseJson
+        })
+        this.manageComplementaryData();
+      }
+    );
+  }
+
+  manageComplementaryData() { //Manages ID, incomplete data and other information
+    const charactersArray = this.state.characters;
+    for (const character of charactersArray) {
+
+      //======== Determines characters' IDs and updates state
+      let characterNameId = character.name;
+      //-- Generates ID based on character's name. ex: harry-potter
+      characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
+
+      //-- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
+      character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
+
+      //======== Manages empty House information
+      if (character.house === '') {
+        character.house = 'SIN CASA';
+      }
+      //======== Manages empty Patronus information
+      if (character.patronus === '') {
+        character.patronus = 'Desconocido o inexistente';
+      }
+    }
+
   this.setState({
     characters: charactersArray
-  })
+  });
+  //======== Saves to localStorage
+  console.log('Saving to LS');
+  localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
+  console.log('Saved to LS',localStorage.getItem('API Harry Potter DB search'));
+
 }
 
 searchCharacter(e) {
@@ -113,9 +126,6 @@ render() {
   );
 }
 
-componentWillUnmout() {
-  localStorage.setItem("API-Harry Potter search string", this.state.searchString);
-}
 }
 
 export default App;
