@@ -20,7 +20,6 @@ class App extends Component {
 
     this.searchCharacter = this.searchCharacter.bind(this);
     this.filterCharacters = this.filterCharacters.bind(this);
-
   }
 
   componentDidMount() {
@@ -72,8 +71,6 @@ class App extends Component {
   });
   //======== Saves to localStorage
   localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
-
-
 }
 
 searchCharacter(e) {
@@ -121,7 +118,6 @@ render() {
     </div>
   );
 }
-
 }
 
 export default App;
