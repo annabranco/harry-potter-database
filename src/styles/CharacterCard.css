@@ -36,6 +36,9 @@
 
 .no__results--image {
   grid-column: span 4;
-  width: 40%;
+  width: 320px;
   margin: 0 auto;
   opacity: 0.6; }
+  @media all and (min-width: 680px) {
+    .no__results--image {
+      width: 500px; } }

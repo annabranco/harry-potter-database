@@ -1,4 +1,6 @@
 import React from 'react'
+import '../styles/Header.css';
+import hpTitle from '../images/hp-title.png';
 
 class Header extends React.Component {
 
@@ -7,7 +9,8 @@ class Header extends React.Component {
     return (
 
       <header className="header__box">
-        <h1 className="header__title">Harry Potter Characters</h1>
+        <img src={hpTitle} alt="Harry Potter title" className="header__img"/>
+        <h1 className="header__title">Characters</h1>
       </header>
 
     );

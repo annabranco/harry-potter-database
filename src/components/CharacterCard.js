@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/CharacterCard.css';
+import noresults from '../images/noresults.gif';
 
 
 class CharacterCard extends React.Component {
@@ -11,7 +12,7 @@ class CharacterCard extends React.Component {
       return (
         <React.Fragment>
           <p className="no__results">Su filtro no retornó ningún resultado</p>
-          <img src="https://cdn.dribbble.com/users/476102/screenshots/2444896/hogwarts.gif" alt="No results" className="no__results--image"/>
+          <img src={noresults} alt="No results" className="no__results--image"/>
         </React.Fragment>
       );
     } else {

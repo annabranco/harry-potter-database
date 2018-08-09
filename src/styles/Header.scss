@@ -1,0 +1,138 @@
+.header__box {
+  position       : relative;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  padding-top    : 20px;
+}
+
+.header__img {
+  width: 300px;
+}
+
+.header__title {
+  position : absolute;
+  bottom   : 0;
+  left     : 60%;
+  font-size: 1.6rem;
+}
+
+.filterBox--outer {
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  margin-top      : 10px;
+  width           : 100vw;
+  background-color: rgba(255, 255, 255,0.3);
+  padding         : 10px 0;
+
+}
+
+.filtersBox {
+  display              : grid;
+  grid-template-columns: 1fr;
+  grid-gap             : 10px;
+  width                : 80%;
+  padding              : 10px;
+
+  @media all and (min-width: 460px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media all and (min-width: 700px) {
+    width                : 80vw;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media all and (min-width: 940px) {
+    grid-template-columns: 1.5fr 1fr 1fr 0.7fr;
+  }
+}
+
+.header__filters--box {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: flex-start;
+  margin         : 0 10px;
+}
+
+.header__label {
+  display    : block;
+  font-size  : 1rem;
+  font-family: serif;
+}
+
+.header__byName--box {}
+
+.header__searchField {
+  border   : 1px solid;
+  height   : 10px;
+  width    : 200px;
+  padding  : 10px;
+  font-size: 0.9rem;
+  opacity  : 0.8;
+}
+
+.header__select--box {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  height         : 32px;
+  margin-left    : 20px;
+}
+
+.header__select {
+  display  : inline;
+  height   : 32px;
+  width    : 120px;
+  font-size: 0.9rem;
+  opacity  : 0.8;
+  cursor   : pointer;
+}
+
+.header__select--icon {
+  margin-left: 10px;
+  height     : 45px;
+}
+
+.header__checkboxes {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  height         : 32px;
+  width          : 150px;
+  font-size      : 0.9rem;
+}
+
+.header__checkbox {
+  cursor: pointer;
+}
+
+.resetButton--box {
+  grid-column: span 1;
+
+  @media all and (min-width: 700px) {
+    grid-column: span 3;
+  }
+  @media all and (min-width: 940px) {
+    grid-column: span 1;
+  }
+}
+
+.header__resetButton {
+  border       : 1px solid black;
+  border-radius: 20px;
+  height       : 32px;
+  width        : 120px;
+  background   : linear-gradient(to right, #91afde, #373B44);
+  color        : white;
+  font-weight  : bold;
+  cursor       : pointer;
+
+  @media all and (min-width: 430px) {
+    margin-top: 15px;
+  }
+
+  @media all and (min-width: 940px) {
+    margin-top: 5px;
+  }
+}

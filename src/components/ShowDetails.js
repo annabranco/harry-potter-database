@@ -5,6 +5,8 @@ import Hufflepuff from '../images/hufflepuff.png';
 import Ravenclaw from '../images/ravenclaw.png';
 import Slytherin from '../images/slytherin.png';
 import Hogwarts from '../images/hogwarts.png';
+import back from '../images/back.gif';
+
 import '../styles/ShowDetails.css';
 
 
@@ -83,7 +85,7 @@ class ShowDetails extends React.Component {
         </div>
         <div className="back--box">
           <Link to='/' className="link back--box">
-            <img src="http://31.media.tumblr.com/43d83cd18ae6a18ead69bef818b3bd02/tumblr_n5zkaohA5s1rff386o1_500.gif" alt="" className="photo__back"/>
+            <img src={back} alt="" className="photo__back"/>
             <p className="text__back">Volver</p>
           </Link>
         </div>

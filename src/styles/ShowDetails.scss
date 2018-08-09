@@ -10,6 +10,7 @@
   text-align: center;
   margin-top: 40px;
   width     : 20%;
+  min-width : 120px;
 }
 
 .text__back {
@@ -20,8 +21,14 @@
 .character__details--box {
   display              : grid;
   grid-template-columns: 1.3fr 3fr;
+  margin-top           : 20px;
   border               : 1px solid;
   width                : 40vw;
+  min-width            : 320px;
+
+  @media all and (min-width: 500px) {
+    min-width: 500px;
+  }
 }
 
 .character__details--photo {
