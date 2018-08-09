@@ -24,9 +24,11 @@ class App extends Component {
 
   componentDidMount() {
 
+    //======== Verifica si ya existe el resultado del fetch en el state
     if (this.state.characters.length > 0) {
       this.manageComplementaryData();
     }
+    //======== Verifica si ya existe el resultado del fetch en localStorage
     if (localStorage.getItem('API Harry Potter DB search')) {
       this.setState({
         characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
