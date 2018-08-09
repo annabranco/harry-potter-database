@@ -85,13 +85,13 @@ class ShowDetails extends React.Component {
         </div>
         <div className="back--box">
           <Link to='/' className="link back--box">
-            <img src={back} alt="" className="photo__back"/>
-            <p className="text__back">Volver</p>
-          </Link>
-        </div>
-      </React.Fragment>
-    );
-  }
+          <img src={back} alt="" className="photo__back"/>
+          <p className="text__back">Volver</p>
+        </Link>
+      </div>
+    </React.Fragment>
+  );
+}
 }
 
 export default ShowDetails;
