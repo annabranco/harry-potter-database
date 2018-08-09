@@ -13,8 +13,8 @@ class Filters extends React.Component {
         </div>
 
         <div className="header__filters--box">
-          <select name="header__select" className="header__select" onChange={this.props.filterByHouse}>
-            <option value="" className="header__options" defaultValue>Todos los personajes</option>
+          <select name="header__select" className="header__select" onChange={this.props.filterByHouse} defaultValue={this.props.searchByHouse}>
+            <option value="" className="header__options" defaultValue hidden></option>
             <option value="Gryffindor" className="header__options">Gryffindor</option>
             <option value="Hufflepuff" className="header__options">Hufflepuff</option>
             <option value="Ravenclaw" className="header__options">Ravenclaw</option>
@@ -24,9 +24,10 @@ class Filters extends React.Component {
         </div>
 
         <div className="header__filters--box">
-          <input className="header__checkbox" type="checkbox" name='alive' onClick={this.props.filterByDead} defaultChecked /><span className="header__checkbox-text">Vivos</span>
-          <input className="header__checkbox" type="checkbox" name='dead' onClick={this.props.filterByDead} defaultChecked /><span className="header__checkbox-text">Muertos</span>
+          <input className="header__checkbox" type="checkbox" name='alive' onClick={this.props.filterByDead} defaultChecked={this.props.searchAliveOrDead.alive} /><span className="header__checkbox-text">Vivos</span>
+          <input className="header__checkbox" type="checkbox" name='dead' onClick={this.props.filterByDead} defaultChecked={this.props.searchAliveOrDead.dead} /><span className="header__checkbox-text">Muertos</span>
         </div>
+        <button className="header__resetButton" onClick={this.props.resetFilters}>Resetear filtros</button>
       </div>
     );
   }

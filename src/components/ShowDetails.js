@@ -74,7 +74,7 @@ class ShowDetails extends React.Component {
                 <p className="character__details--item">Patronus: {characterToDisplay.patronus.charAt(0).toUpperCase() + characterToDisplay.patronus.slice(1)}</p>
               </li>
               <li className="character__details--infoItem">
-                <p className="character__details--item">Estado: {deadOrAlive.toUpperCase()} </p>
+                <p className="character__details--item">Estado: {characterToDisplay.estado.toUpperCase()} </p>
               </li>
               <li className="character__details--infoItem">
                 <img className="house__crest" src={housePicture} alt={characterToDisplay.house} />

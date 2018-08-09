@@ -25,6 +25,8 @@ class App extends Component {
     this.filterCharacters = this.filterCharacters.bind(this);
     this.filterByHouse = this.filterByHouse.bind(this);
     this.filterByDead = this.filterByDead.bind(this);
+    this.resetFilters = this.resetFilters.bind(this);
+
   }
 
   componentDidMount() {
@@ -129,18 +131,16 @@ const finalSearch = searchResultsbyHouse.filter(character => character.estado.in
 this.setState({
   searchResults: finalSearch
 });
-
 }
 
 filterByHouse(e) {
 
-const eventValue = e.currentTarget.value;
+  const eventValue = e.currentTarget.value;
 
   setTimeout(() => {
     this.setState({ searchByHouse: eventValue });
     this.filterCharacters();
   },1);
-
 }
 
 filterByDead(e) {
@@ -162,9 +162,24 @@ filterByDead(e) {
 
     this.filterCharacters();
   },1);
-
 }
 
+//======== RESET filters
+resetFilters() {
+
+document.querySelector('.header__searchField').value = '';
+document.querySelector('.header__select').value = '';
+for (const checkbox of document.querySelectorAll('.header__checkbox')){
+  checkbox.checked = true;
+}
+
+  this.setState({
+    searchString: '',
+    searchByHouse: '',
+    searchAliveOrDead: {alive: true, dead: true},
+    searchCharactersIsAlive: ''
+  })
+}
 render() {
 
   return (
@@ -183,7 +198,9 @@ render() {
             filterByHouse={this.filterByHouse}
             searchByHouse={this.state.searchByHouse}
             filterByDead={this.filterByDead}
+            searchAliveOrDead={this.state.searchAliveOrDead}
             searchCharactersIsAlive={this.state.searchCharactersIsAlive}
+            resetFilters={this.resetFilters}
           />}
         />
         <Route path='/character/:id' render={

@@ -16,6 +16,8 @@ class ShowCharacters extends React.Component {
           filterByHouse={this.props.filterByHouse}
           searchByHouse={this.props.searchByHouse}
           filterByDead={this.props.filterByDead}
+          searchAliveOrDead={this.props.searchAliveOrDead}
+          resetFilters={this.props.resetFilters}
         />
         <CharacterList
           characters={this.props.characters}
