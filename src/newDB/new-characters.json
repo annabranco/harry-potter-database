@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Nymphadora Tonks",
+    "species": "human (metamorphmagus)",
+    "gender": "female",
+    "house": "Hufflepuff",
+    "dateOfBirth": "",
+    "yearOfBirth": 1973,
+    "ancestry": "half-blood",
+    "eyeColour": "variable (dark)",
+    "hairColour": "variable (bubble gum pink; biologically light brown)",
+    "wand": {
+      "wood": "rowan",
+      "core": "unicorn hair",
+      "length": 11
+    },
+    "patronus": "rabbit/wolf",
+    "hogwartsStudent": false,
+    "hogwartsStaff": false,
+    "actor": "Natalia Tena",
+    "alive": false,
+    "image": NymphadoraTonks
+  }
+]
