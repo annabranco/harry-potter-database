@@ -20,7 +20,8 @@ class CharacterCard extends React.Component {
       return (
         <React.Fragment>
 
-          {this.props.characters
+          {this.props.characters.length > 25 &&
+            this.props.characters
             .filter(character => character.name.toLowerCase().includes(this.props.searchString.toLowerCase()))
             .filter(character => character.house.includes(this.props.searchByHouse))
             .filter(character => character.estado.includes(this.props.searchCharactersIsAlive))

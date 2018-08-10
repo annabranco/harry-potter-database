@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
 import './styles/App.css';
+import NymphadoraTonks from './images/newCharacters/NymphadoraTonks3.jpg';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
 
@@ -36,17 +37,17 @@ class App extends Component {
       this.manageComplementaryData();
     }
     //======== Verifica si ya existe el resultado del fetch en localStorage
-    if (localStorage.getItem('API Harry Potter DB search')) {
-      this.setState({
-        characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
-      })
-    } else {
-      this.fetchCharacters();
-    }
+    // if (localStorage.getItem('API Harry Potter DB search')) {
+    //   this.setState({
+    //     characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
+    //   })
+    // } else {
+    this.fetchCharacters();
+    //  }
   }
 
   fetchCharacters() {
-    alert('fetching');
+    console.log('Fetching new data');
     fetch(url)
     .then (response => response.json())
     .then (responseJson => {
@@ -58,8 +59,37 @@ class App extends Component {
   );
 }
 
-manageComplementaryData() { //Manages ID, incomplete data and other information
+manageComplementaryData() { //Manages ID, missing data and other information
   const charactersArray = this.state.characters;
+
+  //======== Adds missing characters
+
+  charactersArray.push(
+    { //---- Nymphadora Tonks
+      "name": "Nymphadora Tonks",
+      "species": "human (metamorphmagus)",
+      "gender": "female",
+      "house": "Hufflepuff",
+      "dateOfBirth": "",
+      "yearOfBirth": 1973,
+      "ancestry": "half-blood",
+      "eyeColour": "variable (dark)",
+      "hairColour": "variable (bubble gum pink; biologically light brown)",
+      "wand": {
+        "wood": "rowan",
+        "core": "unicorn hair",
+        "length": 11
+      },
+      "patronus": "rabbit/wolf",
+      "hogwartsStudent": false,
+      "hogwartsStaff": false,
+      "actor": "Natalia Tena",
+      "alive": false,
+      "image": NymphadoraTonks
+    },
+  );
+
+
   for (const character of charactersArray) {
 
     //======== Determines characters' IDs and updates state
@@ -93,6 +123,20 @@ manageComplementaryData() { //Manages ID, incomplete data and other information
       character.estado = `muert${genderEnding}`;
     }
   }
+
+  //======== Sorts characters alphabeticaly
+  charactersArray.sort((a,b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    return comparison;
+  });
 
   //======== Save all info on the state
   this.setState({
@@ -167,11 +211,11 @@ filterByDead(e) {
 //======== RESET filters
 resetFilters() {
 
-document.querySelector('.header__searchField').value = '';
-document.querySelector('.header__select').value = '';
-for (const checkbox of document.querySelectorAll('.header__checkbox')){
-  checkbox.checked = true;
-}
+  document.querySelector('.header__searchField').value = '';
+  document.querySelector('.header__select').value = '';
+  for (const checkbox of document.querySelectorAll('.header__checkbox')){
+    checkbox.checked = true;
+  }
 
   this.setState({
     searchString: '',
@@ -189,7 +233,8 @@ render() {
       <Header />
       <Switch>
         <Route exact path='/' render={
-          () => <ShowCharacters
+          () =>
+          <ShowCharacters
             searchCharacter={this.searchCharacter}
             characters={this.state.characters}
             searchString={this.state.searchString}
