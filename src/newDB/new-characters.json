@@ -19,6 +19,6 @@
     "hogwartsStaff": false,
     "actor": "Natalia Tena",
     "alive": false,
-    "image": NymphadoraTonks
+    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/NymphadoraTonks.jpg"
   }
 ]
