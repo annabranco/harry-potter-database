@@ -39,5 +39,46 @@
     "patronus": "Rabbit/Wolf",
     "actor": "Natalia Tena",
     "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/NymphadoraTonks.jpg"
+  },
+  {
+    "id": "1111051albusdumbledore",
+    "_name": "Albus Dumbledore",
+    "fullname": "Albus Percival Wulfric Brian Dumbledore",
+    "aka": [],
+    "dateOfBirth": "",
+    "yearOfBirth": 1881,
+    "country": "Great Britain",
+    "alive": false,
+    "dateOfDeath": "30/06/1997",
+    "yearOfDeath": 1997,
+    "ancestry": "half-blood",
+    "species": "human",
+    "gender": "female",
+    "height": 5.11,
+    "skinColour": "light",
+    "eyeColour": "blue",
+    "hairColour": "silver",
+    "occupation": "Headmaster",
+    "hogwartsStudent": false,
+    "ishogwartsStudent": "former",
+    "hogwartsStaff": true,
+    "house": "Gryffindor",
+    "relatives": {
+      "parents": ["Kendra Dumbledore","Percival Dumbledore"],
+      "children": [],
+      "siblings": ["Aberforth Dumbledore","Ariana Dumbledore "],
+      "friends": []
+    },
+    "associations": {
+      "member": ["Order of Merlin","Order of the Phoenix","Dumbledore's Army","Hogwarts"]
+    },
+    "wand": {
+      "wood": "elder",
+      "core": "threstal tail hair",
+      "length": 15
+    },
+    "patronus": "Phoenix",
+    "actor": "Michael Gambon",
+    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/AlbusDumbledore.jpg"
   }
 ]
