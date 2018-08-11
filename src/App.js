@@ -38,6 +38,7 @@ class App extends Component {
     if (this.state.characters.length > 0) {
       this.manageComplementaryData();
     }
+
     //======== Verifica si ya existe el resultado del fetch en localStorage
     // if (localStorage.getItem('API Harry Potter DB search')) {
     //   this.setState({
@@ -45,7 +46,7 @@ class App extends Component {
     //   })
     // } else {
     this.fetchCharacters();
-    //  }
+  //    }
   }
 
   fetchCharacters() {
@@ -92,7 +93,7 @@ manageComplementaryData() {
 
     //======== Manages empty House information
     if (character.house === '') {
-      character.house = '';
+      character.house = ' ';
     }
     //======== Manages empty Patronus information
     if (character.patronus === '') {

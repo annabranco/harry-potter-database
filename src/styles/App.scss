@@ -25,7 +25,7 @@ body {
   grid-template-columns: 220px;
   grid-gap             : 30px;
   padding              : 0 0 0 30px;
-  margin               : 30px auto;
+  margin               : -150px auto 30px;
 
   @media all and (min-width: 590px) {
     grid-template-columns: repeat(2, 220px);

@@ -1,6 +1,7 @@
 .header__box {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-top: 20px; }
@@ -16,13 +17,50 @@
   font-size: 1.6rem;
   color: #21202b; }
 
+.parchment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 200px;
+  width: 100vw; }
+
+.parchmentLeftDIV {
+  margin-left: 30px;
+  text-align: right; }
+
+.parchmentLeft {
+  height: 190px; }
+
+.parchmentMiddleDIV {
+  z-index: 2;
+  margin-bottom: 16px;
+  height: 130px;
+  width: 5px;
+  background: url("../images/parchment-middle.png");
+  background-size: 90vw 95%;
+  background-position: left;
+  background-repeat: repeat-x;
+  overflow: hidden;
+  transition: width ease-out 1s; }
+  .parchmentMiddleDIV:hover {
+    display: block;
+    width: 90vw;
+    transition: width ease-out 3s; }
+
+.parchmentRightDIV {
+  z-index: 2;
+  text-align: left; }
+
+.parchmentRight {
+  height: 190px; }
+
 .filterBox--outer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.2);
+  margin: 5px 0 0;
+  height: 100px;
+  width: 90vw;
   padding: 10px 0;
   box-shadow: 0 4px 20px 1px rgba(103, 101, 101, 0.2); }
 
@@ -57,6 +95,9 @@
   font-family: 'Encode Sans Condensed', sans-serif;
   font-weight: 600; }
 
+.header__label-byHouse {
+  margin-left: -80px; }
+
 .header__searchField {
   border: 1px solid;
   height: 10px;
@@ -84,8 +125,9 @@
   cursor: pointer; }
 
 .header__select--icon {
-  margin-left: 10px;
-  height: 45px; }
+  margin: 0 0 30px 30px;
+  height: 95px;
+  opacity: 0.8; }
 
 .header__checkboxes {
   display: flex;
