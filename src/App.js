@@ -4,9 +4,11 @@ import Header from './components/Header';
 import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
 import './styles/App.css';
-import NymphadoraTonks from './images/newCharacters/NymphadoraTonks.jpg';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
+const newCharacters = 'https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/new-characters.json';
+
+
 
 class App extends Component {
 
@@ -54,41 +56,29 @@ class App extends Component {
       this.setState({
         characters: responseJson
       })
-      this.manageComplementaryData();
+      this.addMissingCharacters();
     }
   );
 }
 
-manageComplementaryData() { //Manages ID, missing data and other information
+//======== Adds new characters, defined on external JSON
+addMissingCharacters() {
+const charactersArray = this.state.characters;
+
+  fetch(newCharacters)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    for (const newCharacter of data) {
+      charactersArray.push(newCharacter)
+    }
+    this.manageComplementaryData();
+  });
+}
+
+//======== Manages ID, missing data and other information for each character
+manageComplementaryData() {
   const charactersArray = this.state.characters;
-
-  //======== Adds missing characters
-
-  charactersArray.push(
-    { //---- Nymphadora Tonks
-      "name": "Nymphadora Tonks",
-      "species": "human (metamorphmagus)",
-      "gender": "female",
-      "house": "Hufflepuff",
-      "dateOfBirth": "",
-      "yearOfBirth": 1973,
-      "ancestry": "half-blood",
-      "eyeColour": "variable (dark)",
-      "hairColour": "variable (bubble gum pink; biologically light brown)",
-      "wand": {
-        "wood": "rowan",
-        "core": "unicorn hair",
-        "length": 11
-      },
-      "patronus": "rabbit/wolf",
-      "hogwartsStudent": false,
-      "hogwartsStaff": false,
-      "actor": "Natalia Tena",
-      "alive": false,
-      "image": NymphadoraTonks
-    },
-  );
-
 
   for (const character of charactersArray) {
 
@@ -102,11 +92,11 @@ manageComplementaryData() { //Manages ID, missing data and other information
 
     //======== Manages empty House information
     if (character.house === '') {
-      character.house = 'SIN CASA';
+      character.house = '';
     }
     //======== Manages empty Patronus information
     if (character.patronus === '') {
-      character.patronus = 'Desconocido o inexistente';
+      character.patronus = 'Desconocido';
     }
     //======== Set "estado" (vivo/a o muerto/a) in Spanish language
     //---- Determines ending of adjectives for Spanish gender reference
@@ -116,11 +106,15 @@ manageComplementaryData() { //Manages ID, missing data and other information
     } else {
       genderEnding = 'o';
     }
-    //---- Determines the correct adjective in Spanish
+    //---- Determines the correct adjective in both Spanish and English
     if (character.alive) {
       character.estado = `viv${genderEnding}`;
+      character.alive = 'alive';
+
     } else {
       character.estado = `muert${genderEnding}`;
+      character.alive = 'deceased';
+
     }
   }
 
@@ -189,7 +183,7 @@ filterByHouse(e) {
 
 filterByDead(e) {
 
-  //---- determines on searchAliveOrDead state what conditions are to me met (dead/aline)
+  //---- determines on searchAliveOrDead state what conditions are to me met (dead/alive)
   this.setState({
     searchAliveOrDead: { ...this.state.searchAliveOrDead, [e.currentTarget.name]: e.currentTarget.checked }
   })

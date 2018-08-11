@@ -11,10 +11,12 @@
 }
 
 .header__title {
-  position : absolute;
-  bottom   : 0;
-  left     : 60%;
-  font-size: 1.6rem;
+  position   : absolute;
+  bottom     : -10px;
+  left       : 60%;
+  font-family: 'Eagle Lake', cursive;
+  font-size  : 1.6rem;
+  color      : #21202b;
 }
 
 .filterBox--outer {
@@ -23,8 +25,9 @@
   justify-content : center;
   margin-top      : 10px;
   width           : 100vw;
-  background-color: rgba(255, 255, 255,0.3);
+  background-color: rgba(255, 255, 255,0.2);
   padding         : 10px 0;
+  box-shadow      : 0 4px 20px 1px rgba(103, 101, 101, 0.2);
 
 }
 
@@ -56,20 +59,23 @@
 }
 
 .header__label {
-  display    : block;
-  font-size  : 1rem;
-  font-family: serif;
+  display      : block;
+  margin-bottom: 5px;
+  font-size    : 1rem;
+  font-family  : 'Encode Sans Condensed', sans-serif;
+  font-weight  : 600;
 }
 
 .header__byName--box {}
 
 .header__searchField {
-  border   : 1px solid;
-  height   : 10px;
-  width    : 200px;
-  padding  : 10px;
-  font-size: 0.9rem;
-  opacity  : 0.8;
+  border     : 1px solid;
+  height     : 10px;
+  width      : 200px;
+  padding    : 10px;
+  font-size  : 0.9rem;
+  font-family: sans-serif;
+  opacity    : 0.8;
 }
 
 .header__select--box {
@@ -78,15 +84,17 @@
   justify-content: center;
   height         : 32px;
   margin-left    : 20px;
+  font-size      : 0.9rem;
 }
 
 .header__select {
-  display  : inline;
-  height   : 32px;
-  width    : 120px;
-  font-size: 0.9rem;
-  opacity  : 0.8;
-  cursor   : pointer;
+  display    : inline;
+  height     : 32px;
+  width      : 120px;
+  font-size  : 0.9rem;
+  font-family: sans-serif;
+  opacity    : 0.8;
+  cursor     : pointer;
 }
 
 .header__select--icon {
@@ -100,6 +108,7 @@
   justify-content: space-between;
   height         : 32px;
   width          : 150px;
+  font-family    : sans-serif;
   font-size      : 0.9rem;
 }
 
@@ -119,20 +128,23 @@
 }
 
 .header__resetButton {
-  border       : 1px solid black;
-  border-radius: 20px;
-  height       : 32px;
-  width        : 120px;
-  background   : linear-gradient(to right, #91afde, #373B44);
-  color        : white;
-  font-weight  : bold;
-  cursor       : pointer;
+  border        : 1px solid black;
+  border-radius : 20px;
+  height        : 32px;
+  width         : 120px;
+  background    : linear-gradient(to right, #91afde, #373B44);
+  color         : white;
+  font-family   : 'Encode Sans Condensed', sans-serif;
+  font-size     : 0.9rem;
+  letter-spacing: 1px;
+  font-weight   : 400;
+  cursor        : pointer;
 
   @media all and (min-width: 430px) {
     margin-top: 15px;
   }
 
   @media all and (min-width: 940px) {
-    margin-top: 5px;
+    margin-top: 10px;
   }
 }

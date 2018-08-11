@@ -19,16 +19,16 @@ body {
 .main__cardsArea {
   display: grid;
   grid-template-columns: 220px;
-  grid-gap: 20px;
-  padding: 0;
-  margin: 0 auto; }
-  @media all and (min-width: 460px) {
+  grid-gap: 30px;
+  padding: 0 0 0 30px;
+  margin: 30px auto; }
+  @media all and (min-width: 590px) {
     .main__cardsArea {
       grid-template-columns: repeat(2, 220px); } }
-  @media all and (min-width: 700px) {
+  @media all and (min-width: 810px) {
     .main__cardsArea {
       grid-template-columns: repeat(3, 220px); } }
-  @media all and (min-width: 940px) {
+  @media all and (min-width: 1050px) {
     .main__cardsArea {
       grid-template-columns: repeat(4, 220px); } }
 

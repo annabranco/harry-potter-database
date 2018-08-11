@@ -34,7 +34,7 @@ class ShowDetails extends React.Component {
     }
 
     // Determines Icon fon deceased
-    if (characterToDisplay.alive) {
+    if (characterToDisplay.alive === 'alive') {
       deadIcon = '';
     } else {
       deadIcon = '☠️';
@@ -66,16 +66,16 @@ class ShowDetails extends React.Component {
             <h2 className="character__details--name"><span className="status">{deadIcon}</span> {characterToDisplay.name}</h2>
             <ul className="character__details--infoList">
               <li className="character__details--infoItem">
-                <p className="character__details--item">Casa: {characterToDisplay.house}</p>
+                <p className="character__details--item">House: {characterToDisplay.house}</p>
               </li>
               <li className="character__details--infoItem">
-                <p className="character__details--item">Nacimiento: {characterToDisplay.yearOfBirth}</p>
+                <p className="character__details--item">Birth: {characterToDisplay.yearOfBirth}</p>
               </li>
               <li className="character__details--infoItem">
                 <p className="character__details--item">Patronus: {characterToDisplay.patronus.charAt(0).toUpperCase() + characterToDisplay.patronus.slice(1)}</p>
               </li>
               <li className="character__details--infoItem">
-                <p className="character__details--item">Estado: {characterToDisplay.estado.toUpperCase()} </p>
+                <p className="character__details--item">Status: {characterToDisplay.alive} </p>
               </li>
               <li className="character__details--infoItem">
                 <img className="house__crest" src={housePicture} alt={characterToDisplay.house} />
@@ -86,7 +86,7 @@ class ShowDetails extends React.Component {
         <div className="back--box">
           <Link to='/' className="link back--box">
           <img src={back} alt="" className="photo__back"/>
-          <p className="text__back">Volver</p>
+          <p className="text__back">Go back</p>
         </Link>
       </div>
     </React.Fragment>
