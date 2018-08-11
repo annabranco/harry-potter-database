@@ -3,15 +3,29 @@ import { Link } from 'react-router-dom';
 import '../styles/CharacterCard.css';
 import noresults from '../images/noresults.gif';
 
+const hoverCard = new Audio('http://freesound.org/data/previews/97/97470_1087455-lq.mp3');
+const selectCard = new Audio('http://freesound.org/data/previews/172/172331_3133255-lq.mp3');
+
 
 class CharacterCard extends React.Component {
+
+  hoverCharacter = () => {
+    hoverCard.volume = 0.2;
+    hoverCard.currentTime = 0;
+    hoverCard.play();
+  }
+  selectCharacter = () => {
+    selectCard.volume = 0.4;
+    selectCard.currentTime = 0;
+    selectCard.play();
+  }
 
   render () {
 
     if ((this.props.searchString !== '' || this.props.searchCharactersIsAlive !== '') && this.props.searchResults.length === 0) {
       return (
         <React.Fragment>
-          <p className="no__results">Su filtro no retornó ningún resultado</p>
+          <p className="no__results">Sorry. There are no results matching your filters.</p>
           <img src={noresults} alt="No results" className="no__results--image"/>
         </React.Fragment>
       );
@@ -27,7 +41,7 @@ class CharacterCard extends React.Component {
             .filter(character => character.estado.includes(this.props.searchCharactersIsAlive))
             .map(character => {
               return (
-                <Link to={'character/' + character.id} className="link">
+                <Link to={'character/' + character.id} className="link" onMouseOver={this.hoverCharacter} onClick={this.selectCharacter}>
                 <li className="characterCard" key={character.id} id={character.id}>
                   <div className="characterCard__photo-box" style={{backgroundImage: "url(" + character.image + ")"}}>
                     <img src={character.image} alt={character.name} className="characterCard__photo"/>

@@ -10,6 +10,7 @@ class ShowCharacters extends React.Component {
     return (
 
       <React.Fragment>
+
         <Filters
           searchCharacter={this.props.searchCharacter}
           searchString={this.props.searchString}
@@ -27,6 +28,7 @@ class ShowCharacters extends React.Component {
           searchByHouse={this.props.searchByHouse}
           searchCharactersIsAlive={this.props.searchCharactersIsAlive}
         />
+
       </React.Fragment>
 
     );

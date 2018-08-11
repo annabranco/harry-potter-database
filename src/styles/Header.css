@@ -23,6 +23,10 @@
   align-items: center;
   height: 200px;
   width: 100vw; }
+  .parchment:hover .parchmentMiddleDIV {
+    display: block;
+    width: 90vw;
+    transition: width ease-out 2.5s; }
 
 .parchmentLeftDIV {
   margin-left: 30px;
@@ -45,7 +49,7 @@
   .parchmentMiddleDIV:hover {
     display: block;
     width: 90vw;
-    transition: width ease-out 3s; }
+    transition: width ease-out 2.5s; }
 
 .parchmentRightDIV {
   z-index: 2;

@@ -13,12 +13,19 @@ import '../styles/ShowDetails.css';
 let characterToDisplay;
 let housePicture;
 let deadIcon;
+const clickBack = new Audio('http://freesound.org/data/previews/240/240476_1662097-lq.mp3');
+
+
 
 class ShowDetails extends React.Component {
   constructor(props) {
     super(props)
-
     this.getCharacter = this.getCharacter.bind(this)
+  }
+
+  soundBack = () => {
+    clickBack.volume = 1;
+    clickBack.play()
   }
 
   componentWillMount() {
@@ -57,7 +64,9 @@ class ShowDetails extends React.Component {
   render () {
 
     return (
+
       <React.Fragment>
+
         <div className="character__details--box">
           <div className="character__details--photoBox" style={{backgroundImage: "url(" + characterToDisplay.image + ")"}}>
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
@@ -83,12 +92,14 @@ class ShowDetails extends React.Component {
             </ul>
           </div>
         </div>
+
         <div className="back--box">
-          <Link to='/' className="link back--box">
+          <Link to='/' className="link back--box" onClick={this.soundBack}>
           <img src={back} alt="" className="photo__back"/>
           <p className="text__back">Go back</p>
         </Link>
       </div>
+
     </React.Fragment>
   );
 }

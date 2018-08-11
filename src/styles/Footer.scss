@@ -1,0 +1,69 @@
+.footer__outer {
+  display              : grid;
+  grid-template-columns: 1fr 1fr;
+  margin               : 40px 0 10px;
+  width                : 100vw;
+
+  @media all and (min-width: 500px) {
+    display        : flex;
+    align-items    : flex-start;
+    justify-content: space-around;
+    min-width      : 500px;
+  }
+}
+
+.footer__version {
+  margin-bottom: 30px;
+  color        : rgba(#a699a0, 0.78);
+}
+
+.footer__inner {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  margin-bottom  : 30px;
+  width          : 100%;
+
+  @media all and (min-width: 500px) {
+    margin-bottom: 0;
+    width        : 25vw;
+  }
+}
+
+.footer__text {
+  margin     : 4px 0;
+  font-family: 'Eagle Lake', cursive;
+  font-size  : 0.6rem;
+  color      : rgb(209, 209, 209);
+}
+
+.footer__anna--img {
+  width: 160px;
+}
+
+.footer__adalab__img {
+  margin-top: 15px;
+  width     : 120px;
+}
+
+.footer__react--img {
+  margin-top: 8px;
+  width     : 100px;
+  animation : React-logo-spin infinite 20s linear;
+}
+
+@keyframes React-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer__powered--img {
+  margin-top: 15px;
+  width     : 70px;
+}

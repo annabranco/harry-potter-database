@@ -9,14 +9,15 @@ import parchmentMiddle from '../images/parchment-middle.png';
 import parchmentRight from '../images/parchment-right.png';
 
 let houseIcon;
-const scrollOpen = new Audio('http://freesound.org/data/previews/360/360646_1196472-lq.mp3');
+const scrollOpen = new Audio('http://freesound.org/data/previews/377/377086_3728489-lq.mp3');
 const scrollClose = new Audio('http://freesound.org/data/previews/416/416179_5121236-lq.mp3');
 
 class Filters extends React.Component {
 
   openScroll = () => {
     scrollOpen.currentTime = 0;
-    scrollClose.pause()
+    scrollOpen.volume = 0.1;
+    scrollOpen.pause()
     scrollOpen.play()
   }
   closeScroll = () => {
@@ -44,12 +45,16 @@ class Filters extends React.Component {
     return (
       <React.Fragment>
 
-        <div className="parchment">
+        <div className="parchment" onMouseOver={this.openScroll} onMouseOut={this.closeScroll}>
+
           <div className="parchmentLeftDIV">
             <img src={parchmentLeft} alt="" className="parchmentLeft"/>
           </div>
-          <div className="parchmentMiddleDIV" onMouseOver={this.openScroll} onMouseOut={this.closeScroll}>
+
+          <div className="parchmentMiddleDIV">
+
             <div className="filterBox--outer">
+
               <div className="filtersBox">
                 <div className="header__filters--box header__byName--box">
                   <label className="header__label" htmlFor="byName">Filter by name</label>
@@ -78,23 +83,24 @@ class Filters extends React.Component {
                     <input className="header__checkbox" type="checkbox" name='dead' onClick={this.props.filterByDead} defaultChecked={this.props.searchAliveOrDead.dead} /><span className="header__checkbox-text">Deceased</span>
                   </div>
                 </div>
+
                 <div className="header__filters--box resetButton--box">
                   <button className="header__resetButton" onClick={this.props.resetFilters}>Reset filters</button>
                 </div>
+
               </div>
             </div>
           </div>
+
           <div className="parchmentRightDIV">
             <img src={parchmentRight} alt="" className="parchmentRight"/>
           </div>
+
         </div>
 
-
       </React.Fragment>
-
     );
   }
-
 }
 
 export default Filters;

@@ -10,8 +10,9 @@ class Header extends React.Component {
 
       <header className="header__box">
 
-          <img src={hpTitle} alt="Harry Potter title" className="header__img"/>
-          <h1 className="header__title">Characters</h1>
+        <img src={hpTitle} alt="Harry Potter title" className="header__img"/>
+        <h1 className="header__title">Characters</h1>
+
       </header>
 
     );

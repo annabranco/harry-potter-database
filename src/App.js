@@ -3,12 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
+import Footer from './components/Footer';
 import './styles/App.css';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
 const newCharacters = 'https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/new-characters.json';
-
-
 
 class App extends Component {
 
@@ -29,24 +28,21 @@ class App extends Component {
     this.filterByHouse = this.filterByHouse.bind(this);
     this.filterByDead = this.filterByDead.bind(this);
     this.resetFilters = this.resetFilters.bind(this);
-
   }
 
   componentDidMount() {
-
     //======== Verifica si ya existe el resultado del fetch en el state
     if (this.state.characters.length > 0) {
       this.manageComplementaryData();
     }
-
     //======== Verifica si ya existe el resultado del fetch en localStorage
-    // if (localStorage.getItem('API Harry Potter DB search')) {
-    //   this.setState({
-    //     characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
-    //   })
-    // } else {
-    this.fetchCharacters();
-  //    }
+    if (localStorage.getItem('API Harry Potter DB search')) {
+      this.setState({
+        characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
+      })
+    } else {
+      this.fetchCharacters();
+    }
   }
 
   fetchCharacters() {
@@ -64,7 +60,7 @@ class App extends Component {
 
 //======== Adds new characters, defined on external JSON
 addMissingCharacters() {
-const charactersArray = this.state.characters;
+  const charactersArray = this.state.characters;
 
   fetch(newCharacters)
   .then(res => res.json())
@@ -82,13 +78,13 @@ manageComplementaryData() {
   const charactersArray = this.state.characters;
 
   for (const character of charactersArray) {
-
     //======== Determines characters' IDs and updates state
     let characterNameId = character.name;
-    //-- Generates ID based on character's name. ex: harry-potter
+
+    //--- Generates ID based on character's name. ex: harry-potter
     characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
 
-    //-- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
+    //--- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
     character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
 
     //======== Manages empty House information
@@ -99,23 +95,23 @@ manageComplementaryData() {
     if (character.patronus === '') {
       character.patronus = 'Desconocido';
     }
+
     //======== Set "estado" (vivo/a o muerto/a) in Spanish language
-    //---- Determines ending of adjectives for Spanish gender reference
+    //--- Determines ending of adjectives for Spanish gender reference
     let genderEnding;
+
     if (character.gender === 'female') {
       genderEnding = 'a';
     } else {
       genderEnding = 'o';
     }
-    //---- Determines the correct adjective in both Spanish and English
+    //--- Determines the correct adjective in both Spanish and English
     if (character.alive) {
       character.estado = `viv${genderEnding}`;
       character.alive = 'alive';
-
     } else {
       character.estado = `muert${genderEnding}`;
       character.alive = 'deceased';
-
     }
   }
 
@@ -123,8 +119,8 @@ manageComplementaryData() {
   charactersArray.sort((a,b) => {
     const nameA = a.name.toLowerCase();
     const nameB = b.name.toLowerCase();
-
     let comparison = 0;
+
     if (nameA > nameB) {
       comparison = 1;
     } else if (nameA < nameB) {
@@ -132,16 +128,13 @@ manageComplementaryData() {
     }
     return comparison;
   });
-
   //======== Save all info on the state
   this.setState({
     characters: charactersArray
   });
-
   //======== Saves to localStorage
   localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
 }
-
 searchCharacter(e) {
   this.setState({
     searchString: e.currentTarget.value
@@ -149,33 +142,24 @@ searchCharacter(e) {
   setTimeout(this.filterCharacters,1); // Without Timeout, the filterCharacters method doesn't get the updated searchString value. I can't solve it any other way.
 }
 
-temp() {
-}
-
 //======== Filter characters
 filterCharacters() {
-
-  //---- Filters by name (ignores case) - input
+  //--- Filters by name (ignores case) - input
   const searchResultsbyName = this.state.characters.filter(character => { return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
   });
-
-  //---- Filters by house - select
+  //--- Filters by house - select
   const searchResultsbyHouse = searchResultsbyName.filter(character => character.house.includes(this.state.searchByHouse)
 );
-
-//---- Filters by alive and/or deceased - checkbox
+//--- Filters by alive and/or deceased - checkbox
 const finalSearch = searchResultsbyHouse.filter(character => character.estado.includes(this.state.searchCharactersIsAlive)
 );
-
 this.setState({
   searchResults: finalSearch
 });
 }
 
 filterByHouse(e) {
-
   const eventValue = e.currentTarget.value;
-
   setTimeout(() => {
     this.setState({ searchByHouse: eventValue });
     this.filterCharacters();
@@ -183,7 +167,6 @@ filterByHouse(e) {
 }
 
 filterByDead(e) {
-
   //---- determines on searchAliveOrDead state what conditions are to me met (dead/alive)
   this.setState({
     searchAliveOrDead: { ...this.state.searchAliveOrDead, [e.currentTarget.name]: e.currentTarget.checked }
@@ -226,6 +209,7 @@ render() {
     <div className="App">
 
       <Header />
+
       <Switch>
         <Route exact path='/' render={
           () =>
@@ -251,6 +235,7 @@ render() {
         />
       </Switch>
 
+      <Footer />
 
     </div>
   );

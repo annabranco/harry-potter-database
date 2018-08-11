@@ -26,6 +26,14 @@
   align-items    : center;
   height         : 200px;
   width          : 100vw;
+
+  &:hover {
+    .parchmentMiddleDIV {
+      display   : block;
+      width     : 90vw;
+      transition: width ease-out 2.5s;
+    }
+  }
 }
 
 .parchmentLeftDIV {
@@ -46,15 +54,13 @@
   background-size    : 90vw 95%;
   background-position: left;
   background-repeat  : repeat-x;
-
   overflow           : hidden;
   transition         : width ease-out 1s;
 
   &:hover {
     display   : block;
     width     : 90vw;
-    transition: width ease-out 3s;
-
+    transition: width ease-out 2.5s;
   }
 }
 
@@ -88,10 +94,12 @@
   @media all and (min-width: 460px) {
     grid-template-columns: 1fr 1fr;
   }
+
   @media all and (min-width: 700px) {
     width                : 80vw;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   @media all and (min-width: 940px) {
     grid-template-columns: 1.5fr 1fr 1fr 0.7fr;
   }
