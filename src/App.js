@@ -4,7 +4,7 @@ import Header from './components/Header';
 import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
 import './styles/App.css';
-import NymphadoraTonks from './images/newCharacters/NymphadoraTonks3.jpg';
+import NymphadoraTonks from './images/newCharacters/NymphadoraTonks.jpg';
 
 const url = 'http://hp-api.herokuapp.com/api/characters';
 
