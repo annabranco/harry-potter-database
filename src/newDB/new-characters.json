@@ -29,7 +29,7 @@
       "friends": []
     },
     "associations": {
-      "member": ["Ministry of Magic","Order of the Phoenix"],
+      "member": ["Ministry of Magic","Order of the Phoenix"]
     },
     "wand": {
       "wood": "rowan",
@@ -70,7 +70,7 @@
       "friends": []
     },
     "associations": {
-      "member": ["Order of Merlin","Order of the Phoenix","Dumbledore's Army","Hogwarts"],
+      "member": ["Order of Merlin","Order of the Phoenix","Dumbledore's Army","Hogwarts"]
     },
     "wand": {
       "wood": "elder",
@@ -79,7 +79,7 @@
     },
     "patronus": "Phoenix",
     "actor": "Michael Gambon",
-    "image": ""
+    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/AlbusDumbledore.jpg"
   },
   {
     "id": "1211000fleurdelacour",
@@ -112,7 +112,7 @@
       "friends": []
     },
     "associations": {
-      "member": ["Beauxbatons Academy of Magic","Order of the Phoenix"],
+      "member": ["Beauxbatons Academy of Magic","Order of the Phoenix"]
     },
     "wand": {
       "wood": "rosewood",
@@ -121,6 +121,6 @@
     },
     "patronus": "",
     "actor": "Clémence Poésy",
-    "image": ""
+    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/FleurDelacour.jpg"
   },
 ]
