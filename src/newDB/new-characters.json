@@ -80,5 +80,47 @@
     "patronus": "Phoenix",
     "actor": "Michael Gambon",
     "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/AlbusDumbledore.jpg"
+  },
+  {
+    "id": "1211000fleurdelacour",
+    "name": "Fleur Delacour",
+    "fullname": "Fleur Isabelle Weasley",
+    "aka": [],
+    "dateOfBirth": "30/10/1977",
+    "yearOfBirth": 1977,
+    "country": "France",
+    "alive": true,
+    "dateOfDeath": "",
+    "yearOfDeath": 0,
+    "ancestry": "quarter-veela",
+    "species": "part-human",
+    "gender": "female",
+    "height": 0,
+    "skinColour": "light",
+    "eyeColour": "dark blue",
+    "hairColour": "silvery-blonde",
+    "occupation": "Part-time at Gringotts Wizarding Bank",
+    "hogwartsStudent": false,
+    "ishogwartsStudent": "no",
+    "hogwartsStaff": false,
+    "house": "",
+    "relatives": {
+      "parents": ["Apolline Delacour","Monsieur Delacour"],
+      "spouse": ["Bill Weasley"],
+      "children": ["Victoire Weasley","Dominique Weasley","Louis Weasley"],
+      "siblings": ["Gabrielle Delacour"],
+      "friends": []
+    },
+    "associations": {
+      "member": ["Beauxbatons Academy of Magic","Order of the Phoenix"]
+    },
+    "wand": {
+      "wood": "rosewood",
+      "core": "veela hair",
+      "length": 9.5
+    },
+    "patronus": "",
+    "actor": "Clémence Poésy",
+    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/FleurDelacour.jpg"
   }
 ]
