@@ -20,12 +20,19 @@
   color      : #21202b;
 }
 
+.parchment__outer {
+  display        : flex;
+  align-items    : center;
+  justify-content: flex-start;
+  width          : 100vw;
+}
+
 .parchment {
   display        : flex;
   justify-content: flex-start;
   align-items    : center;
   height         : 200px;
-  width          : 100vw;
+  width          : auto;
 
   &:hover {
     .parchmentMiddleDIV {

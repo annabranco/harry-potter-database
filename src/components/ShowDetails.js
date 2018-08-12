@@ -1,25 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/ShowDetails.css';
 import Gryffindor from '../images/gryffindor.png';
 import Hufflepuff from '../images/hufflepuff.png';
 import Ravenclaw from '../images/ravenclaw.png';
 import Slytherin from '../images/slytherin.png';
 import Hogwarts from '../images/hogwarts.png';
 import back from '../images/back.gif';
-
-import '../styles/ShowDetails.css';
-
+import favorites from '../images/favorites.png';
 
 let characterToDisplay;
 let housePicture;
 let deadIcon;
+let himHer;
 const clickBack = new Audio('http://freesound.org/data/previews/240/240476_1662097-lq.mp3');
-
-
 
 class ShowDetails extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      favorite: false
+    }
+
     this.getCharacter = this.getCharacter.bind(this)
   }
 
@@ -47,6 +49,24 @@ class ShowDetails extends React.Component {
       deadIcon = '☠️';
     }
 
+    // Determines HER for female and HIM for male
+    if (characterToDisplay.gender === 'female') {
+      himHer = 'her';
+    } else {
+      himHer = 'him';
+    }
+
+    // Determines if the component is about a favorite character
+    if (characterToDisplay.favorite) {
+      this.setState({
+        favorite: true
+      })
+    } else {
+      this.setState({
+        favorite: false
+      })
+    }
+
     //Determines image of the House crest to print it on the info box
     if (characterToDisplay.house === 'Gryffindor') {
       housePicture = Gryffindor;
@@ -61,13 +81,43 @@ class ShowDetails extends React.Component {
     }
   }
 
+  //======== Add to favorites
+  add2Favorites = () => {
+    this.props.saveFavorite(characterToDisplay.id)
+
+    // Changes the state of the component
+    if (this.state.favorite) {
+      this.setState({
+        favorite: false
+      })
+    } else {
+      this.setState({
+        favorite: true
+      })
+    }
+  }
+
+
   render () {
 
     return (
 
       <React.Fragment>
 
-        <div className="character__details--box">
+        {characterToDisplay.favorite &&  (
+          <div className="favorite__container">
+            <h3 className="favorite__text-important">{characterToDisplay.name} is one of your favorite characters</h3>
+            <p className="favorite__text">Click on its card to remove {himHer} from your favorites</p>
+          </div>
+        )}
+        {!characterToDisplay.favorite &&  (
+          <div className="favorite__container">
+            <p className="favorite__text">Click on the card to add {characterToDisplay.name} to your favorites.</p>
+          </div>
+        )}
+
+        <div className="character__details--box" onClick={this.add2Favorites}>
+          <img src={favorites} alt="Favorite icon" className={`favorite__icon--details  ${characterToDisplay.favorite && "favorited"}`}/>
           <div className="character__details--photoBox" style={{backgroundImage: "url(" + characterToDisplay.image + ")"}}>
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
           </div>

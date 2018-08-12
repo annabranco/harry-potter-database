@@ -36,13 +36,13 @@ class App extends Component {
       this.manageComplementaryData();
     }
     //======== Verifica si ya existe el resultado del fetch en localStorage
-    if (localStorage.getItem('API Harry Potter DB search')) {
-      this.setState({
-        characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
-      })
-    } else {
-      this.fetchCharacters();
-    }
+    // if (localStorage.getItem('API Harry Potter DB search')) {
+    //   this.setState({
+    //     characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
+    //   })
+    // } else {
+    this.fetchCharacters();
+    //    }
   }
 
   fetchCharacters() {
@@ -85,7 +85,20 @@ manageComplementaryData() {
     characterNameId = characterNameId.replace(/ /g,'-').toLowerCase();
 
     //--- adds random number on the end of character's ID to prevent diplicates. ex: harry-potter-398
-    character.id = characterNameId + '-' + (Math.floor(Math.random()*1000));
+    let idSufix = '';
+
+    if (character.house === 'Gryffindor') {
+      idSufix = '001';
+    } else if (character.house === 'Slytherin') {
+      idSufix = '002';
+    } else if (character.house === 'Ravenclaw') {
+      idSufix = '003';
+    } else if (character.house === 'Hufflepuff') {
+      idSufix = '004';
+    } else {
+      idSufix = '000';
+    }
+    character.id = characterNameId + '-' + idSufix + '-' + (Math.floor(Math.random()*1000));
 
     //======== Manages empty House information
     if (character.house === '') {
@@ -94,6 +107,14 @@ manageComplementaryData() {
     //======== Manages empty Patronus information
     if (character.patronus === '') {
       character.patronus = 'Desconocido';
+    }
+
+    //======== Flags as favorite if it is favorited in localStorage
+    const fixedId = character.id.substring(0, character.id.length-4);
+
+    if (JSON.parse(localStorage.getItem('API Harry Potter DB favorites').indexOf(fixedId) > -1)) {
+
+      character.favorite = true;
     }
 
     //======== Set "estado" (vivo/a o muerto/a) in Spanish language
@@ -202,6 +223,34 @@ resetFilters() {
     searchCharactersIsAlive: ''
   })
 }
+
+saveFavorite = id => {
+  const fixedId = id.substring(0, id.length-4);
+
+  for (const character of this.state.characters) {
+    if (character.id.substring(0, id.length-4) === fixedId) { //Compares IDs
+
+      if (character.favorite) {
+
+        character.favorite = false;
+        let favorites = JSON.parse(localStorage.getItem('API Harry Potter DB favorites'));
+
+        for (let i = 0; i < favorites.length; i++) {
+          if (favorites[i] === fixedId) {
+            favorites.splice(i, 1);
+          }
+        }
+        localStorage.setItem('API Harry Potter DB favorites', JSON.stringify(favorites));
+      } else {
+        character.favorite = true;
+        let favorites = JSON.parse(localStorage.getItem('API Harry Potter DB favorites'));
+        favorites = [ ... favorites, fixedId];
+        localStorage.setItem('API Harry Potter DB favorites', JSON.stringify(favorites));
+      }
+    }
+  }
+}
+
 render() {
 
   return (
@@ -225,12 +274,14 @@ render() {
             searchAliveOrDead={this.state.searchAliveOrDead}
             searchCharactersIsAlive={this.state.searchCharactersIsAlive}
             resetFilters={this.resetFilters}
+            saveFavorite={this.saveFavorite}
           />}
         />
         <Route path='/character/:id' render={
           (props) => <ShowDetails
             match={props.match}
             characters={this.state.characters}
+            saveFavorite={this.saveFavorite}
           />}
         />
       </Switch>

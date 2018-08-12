@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/CharacterCard.css';
 import noresults from '../images/noresults.gif';
+import favorites from '../images/favorites.png';
+
 
 const hoverCard = new Audio('http://freesound.org/data/previews/97/97470_1087455-lq.mp3');
 const selectCard = new Audio('http://freesound.org/data/previews/172/172331_3133255-lq.mp3');
@@ -43,6 +45,7 @@ class CharacterCard extends React.Component {
               return (
                 <Link to={'character/' + character.id} className="link" onMouseOver={this.hoverCharacter} onClick={this.selectCharacter}>
                 <li className="characterCard" key={character.id} id={character.id}>
+              <img src={favorites} alt="Favorite icon" className={`favorite__icon  ${character.favorite && "favorited"}`}/>
                   <div className="characterCard__photo-box" style={{backgroundImage: "url(" + character.image + ")"}}>
                     <img src={character.image} alt={character.name} className="characterCard__photo"/>
                   </div>

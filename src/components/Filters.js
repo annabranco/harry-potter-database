@@ -5,7 +5,6 @@ import Ravenclaw from '../images/ravenclaw.png';
 import Slytherin from '../images/slytherin.png';
 import Hogwarts from '../images/hogwarts.png';
 import parchmentLeft from '../images/parchment-left.png';
-import parchmentMiddle from '../images/parchment-middle.png';
 import parchmentRight from '../images/parchment-right.png';
 
 let houseIcon;
@@ -43,8 +42,8 @@ class Filters extends React.Component {
 
 
     return (
-      <React.Fragment>
 
+      <div className="parchment__outer">
         <div className="parchment" onMouseOver={this.openScroll} onMouseOut={this.closeScroll}>
 
           <div className="parchmentLeftDIV">
@@ -97,8 +96,8 @@ class Filters extends React.Component {
           </div>
 
         </div>
+      </div>
 
-      </React.Fragment>
     );
   }
 }
