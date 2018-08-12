@@ -85,13 +85,15 @@
 }
 
 .no__results--image {
-  grid-column: span 4;
-  width      : 320px;
-  margin     : 0 auto;
-  opacity    : 0.6;
+  grid-column  : span 4;
+  border-radius: 10px;
+  margin       : 0 auto;
+  width        : 320px;
+  opacity      : 0.3;
+  box-shadow   : inset 0 0 10px 10px rgba(0, 0, 0, 0.69);
 
   @media all and (min-width: 680px) {
-    width: 500px;
+    width: 300px;
   }
 }
 
