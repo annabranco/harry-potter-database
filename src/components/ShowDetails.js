@@ -60,13 +60,13 @@ class ShowDetails extends React.Component {
     }
 
     // Determines if the component is about a favorite character
-    if (characterToDisplay.favorite) {
+    if (characterToDisplay.favorite === 'yes') {
       this.setState({
-        favorite: true
+        favorite: 'yes'
       })
     } else {
       this.setState({
-        favorite: false
+        favorite: 'no'
       })
     }
 
@@ -89,12 +89,12 @@ class ShowDetails extends React.Component {
     this.props.saveFavorite(characterToDisplay.id)
 
     // Changes the state of the component
-    if (this.state.favorite) {
+    if (this.state.favorite === 'yes') {
       this.setState({
         favorite: 'no'
       })
       favRemove.currentTime = 0.3;
-      favRemove.volume = 0.4;
+      favRemove.volume = 0.5;
       favRemove.play();
     } else {
       this.setState({

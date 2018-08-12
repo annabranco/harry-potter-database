@@ -24,7 +24,7 @@ class CharacterCard extends React.Component {
 
   render () {
 
-    if ((this.props.searchString !== '' || this.props.searchCharactersIsAlive !== '') && this.props.searchResults.length === 0 || this.props.seachByFavorites === "yes") {
+    if ((this.props.searchString !== '' || this.props.searchCharactersIsAlive !== '' || this.props.seachByFavorites === "yes") && this.props.searchResults.length === 0) {
       return (
         <React.Fragment>
           <p className="no__results">Sorry. There are no results matching your filters.</p>
@@ -38,13 +38,7 @@ class CharacterCard extends React.Component {
 
           {this.props.characters.length > 25 &&
             this.props.characters
-            .filter(character => {
-if (this.props.seachByFavorites === "yes") {
-return character.favorite.includes(this.props.seachByFavorites)
-} else {
-return character.name.length > 0
-}
-})
+            .filter(character =>  character.favorite.includes(this.props.seachByFavorites))
             .filter(character => character.name.toLowerCase().includes(this.props.searchString.toLowerCase()))
             .filter(character => character.house.includes(this.props.searchByHouse))
             .filter(character => character.estado.includes(this.props.searchCharactersIsAlive))

@@ -32,13 +32,13 @@ class FiltersItems extends React.Component {
 
         <div className="filtersBox">
 
-          <div className="header__filters--box header__byName--box">
-            <label className="header__label header__label-byFavorite" htmlFor="byFavorites">Favorites only</label>
+          <div className="header__filters--box header__byFavorite--box">
+            <label className="header__label header__label-byFavorite" htmlFor="byFavorites">{this.props.seachByFavorites === 'yes' ? "Favorites only" : "See favorites"}</label>
             <img src={favorites} alt="" className={`header__filters--favorites-img  ${this.props.seachByFavorites === "yes" && "favorited"}`} onClick={this.props.filterByFavorites}/>
           </div>
 
           <div className="header__filters--box header__byName--box">
-            <label className="header__label" htmlFor="byName">Filter by name</label>
+            <label className="header__label header__label--byName" htmlFor="byName">Filter by name</label>
             <input type="text" id="byName" className="header__searchField" onChange={this.props.searchCharacter} placeholder="Ex. Harry" defaultValue={this.props.searchString}/>
           </div>
 
@@ -53,12 +53,16 @@ class FiltersItems extends React.Component {
                 <option value="Slytherin" className="header__options">Slytherin</option>
                 <option value=" " className="header__options"> - No house - </option>
               </select>
-              <img src={houseIcon} alt={`Icono de ${this.props.searchByHouse}`} className="header__select--icon"/>
+
             </div>
           </div>
 
+          <div className="header__filters--box header__filters--box-houses">
+              <img src={houseIcon} alt={`Icono de ${this.props.searchByHouse}`} className="header__select--icon"/>
+            </div>
+
           <div className="header__filters--box header__byStatus--box">
-            <label className="header__label" htmlFor="byStatus">Filter by status</label>
+            <label className="header__label header__label--byStatus" htmlFor="byStatus">Filter by status</label>
             <div className="header__checkboxes">
               <input className="header__checkbox" id="byStatus" type="checkbox" name='alive' onClick={this.props.filterByDead} defaultChecked={this.props.searchAliveOrDead.alive} /><span className="header__checkbox-text">Alive</span>
               <input className="header__checkbox" type="checkbox" name='dead' onClick={this.props.filterByDead} defaultChecked={this.props.searchAliveOrDead.dead} /><span className="header__checkbox-text">Deceased</span>
