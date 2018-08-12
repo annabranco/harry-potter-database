@@ -45,7 +45,7 @@
   z-index: 2;
   margin-bottom: 16px;
   height: 130px;
-  width: 5px;
+  width: 90vw;
   background: url("../images/parchment-middle.png");
   background-size: 90vw 95%;
   background-position: left;
@@ -89,7 +89,7 @@
       grid-template-columns: 1fr 1fr 1fr; } }
   @media all and (min-width: 940px) {
     .filtersBox {
-      grid-template-columns: 1.5fr 1fr 1fr 0.7fr; } }
+      grid-template-columns: 1.2fr 1.5fr 1fr 1fr 0.5fr; } }
 
 .header__filters--box {
   display: flex;
@@ -107,6 +107,18 @@
 
 .header__label-byHouse {
   margin-left: -80px; }
+
+.header__label-byFavorite {
+  width: 100px; }
+
+.header__filters--favorites-img {
+  width: 50px;
+  filter: grayscale(100%);
+  opacity: 0.4;
+  cursor: pointer; }
+  .header__filters--favorites-img.favorited {
+    filter: none;
+    opacity: 1; }
 
 .header__searchField {
   border: 1px solid;
@@ -164,7 +176,7 @@
   border: 1px solid black;
   border-radius: 20px;
   height: 32px;
-  width: 120px;
+  width: 100px;
   background: linear-gradient(to right, #91afde, #373B44);
   color: white;
   font-family: 'Encode Sans Condensed', sans-serif;

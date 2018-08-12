@@ -8,10 +8,6 @@
   box-shadow   : 0 7px 15px 4px rgba(0, 0, 0, 0.4);
   overflow     : hidden;
 
-  &.favorited {
-    border: 1px solid #593b28;
-  }
-
   &:hover {
     box-shadow: 0 0 20px 10px rgba(177, 158, 30, 0.63);
 

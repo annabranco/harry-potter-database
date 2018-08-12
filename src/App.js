@@ -19,6 +19,7 @@ class App extends Component {
       searchString: '',
       searchResults:[],
       searchByHouse: '',
+      seachByFavorites: '',
       searchAliveOrDead: {alive: true, dead: true}, //[display alive, display dead]
       searchCharactersIsAlive: ''
     }
@@ -27,6 +28,7 @@ class App extends Component {
     this.filterCharacters = this.filterCharacters.bind(this);
     this.filterByHouse = this.filterByHouse.bind(this);
     this.filterByDead = this.filterByDead.bind(this);
+    this.filterByFavorites = this.filterByFavorites.bind(this);
     this.resetFilters = this.resetFilters.bind(this);
   }
 
@@ -37,6 +39,7 @@ class App extends Component {
     }
     //======== Verifica si ya existe el resultado del fetch en localStorage
     // if (localStorage.getItem('API Harry Potter DB search')) {
+    //  console.log('Fetching data from localStorage');
     //   this.setState({
     //     characters: JSON.parse(localStorage.getItem('API Harry Potter DB search'))
     //   })
@@ -46,7 +49,7 @@ class App extends Component {
   }
 
   fetchCharacters() {
-    console.log('Fetching new data');
+    console.log('Fetching new data from API');
     fetch(url)
     .then (response => response.json())
     .then (responseJson => {
@@ -106,15 +109,21 @@ manageComplementaryData() {
     }
     //======== Manages empty Patronus information
     if (character.patronus === '') {
-      character.patronus = 'Desconocido';
+      character.patronus = 'unknown';
+    }
+
+    //======== Manages empty Birth information
+    if (character.yearOfBirth === '') {
+      character.yearOfBirth = 'unknown';
     }
 
     //======== Flags as favorite if it is favorited in localStorage
     const fixedId = character.id.substring(0, character.id.length-4);
 
     if (JSON.parse(localStorage.getItem('API Harry Potter DB favorites').indexOf(fixedId) > -1)) {
-
-      character.favorite = true;
+      character.favorite = 'yes';
+    } else {
+      character.favorite = 'no'
     }
 
     //======== Set "estado" (vivo/a o muerto/a) in Spanish language
@@ -156,6 +165,8 @@ manageComplementaryData() {
   //======== Saves to localStorage
   localStorage.setItem('API Harry Potter DB search', JSON.stringify(charactersArray));
 }
+
+
 searchCharacter(e) {
   this.setState({
     searchString: e.currentTarget.value
@@ -165,8 +176,13 @@ searchCharacter(e) {
 
 //======== Filter characters
 filterCharacters() {
+
+  //--- Filters by favorites
+  const searchResultsbyFavorites = this.state.characters.filter(character =>  character.favorite.includes(this.state.seachByFavorites)
+);
+
   //--- Filters by name (ignores case) - input
-  const searchResultsbyName = this.state.characters.filter(character => { return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
+  const searchResultsbyName = searchResultsbyFavorites.filter(character => { return character.name.toLowerCase().includes(this.state.searchString.toLowerCase())
   });
   //--- Filters by house - select
   const searchResultsbyHouse = searchResultsbyName.filter(character => character.house.includes(this.state.searchByHouse)
@@ -177,6 +193,19 @@ const finalSearch = searchResultsbyHouse.filter(character => character.estado.in
 this.setState({
   searchResults: finalSearch
 });
+}
+
+filterByFavorites() {
+  if (this.state.seachByFavorites === '') {
+    this.setState({
+      seachByFavorites: 'yes'
+    })
+  } else {
+    this.setState({
+      seachByFavorites: ''
+    })
+  }
+setTimeout(this.filterCharacters,1);
 }
 
 filterByHouse(e) {
@@ -192,7 +221,6 @@ filterByDead(e) {
   this.setState({
     searchAliveOrDead: { ...this.state.searchAliveOrDead, [e.currentTarget.name]: e.currentTarget.checked }
   })
-
   //--- verifies what above conditions are to be met and and saves to state a search string for dead and/or alive
   setTimeout(() => { // Trying ternary conditional...
     this.state.searchAliveOrDead.alive && this.state.searchAliveOrDead.dead
@@ -220,7 +248,8 @@ resetFilters() {
     searchString: '',
     searchByHouse: '',
     searchAliveOrDead: {alive: true, dead: true},
-    searchCharactersIsAlive: ''
+    searchCharactersIsAlive: '',
+    filterByFavorites: ''
   })
 }
 
@@ -230,9 +259,9 @@ saveFavorite = id => {
   for (const character of this.state.characters) {
     if (character.id.substring(0, id.length-4) === fixedId) { //Compares IDs
 
-      if (character.favorite) {
+      if (character.favorite === 'yes') {
 
-        character.favorite = false;
+        character.favorite = 'no';
         let favorites = JSON.parse(localStorage.getItem('API Harry Potter DB favorites'));
 
         for (let i = 0; i < favorites.length; i++) {
@@ -242,7 +271,7 @@ saveFavorite = id => {
         }
         localStorage.setItem('API Harry Potter DB favorites', JSON.stringify(favorites));
       } else {
-        character.favorite = true;
+        character.favorite = 'yes';
         let favorites = JSON.parse(localStorage.getItem('API Harry Potter DB favorites'));
         favorites = [ ... favorites, fixedId];
         localStorage.setItem('API Harry Potter DB favorites', JSON.stringify(favorites));
@@ -275,6 +304,8 @@ render() {
             searchCharactersIsAlive={this.state.searchCharactersIsAlive}
             resetFilters={this.resetFilters}
             saveFavorite={this.saveFavorite}
+            filterByFavorites={this.filterByFavorites}
+            seachByFavorites={this.state.seachByFavorites}
           />}
         />
         <Route path='/character/:id' render={

@@ -14,6 +14,9 @@ let housePicture;
 let deadIcon;
 let himHer;
 const clickBack = new Audio('http://freesound.org/data/previews/240/240476_1662097-lq.mp3');
+const favRemove = new Audio('http://freesound.org/data/previews/394/394432_5121236-lq.mp3');
+const favAdd = new Audio('http://freesound.org/data/previews/170/170720_105499-lq.mp3');
+
 
 class ShowDetails extends React.Component {
   constructor(props) {
@@ -88,12 +91,18 @@ class ShowDetails extends React.Component {
     // Changes the state of the component
     if (this.state.favorite) {
       this.setState({
-        favorite: false
+        favorite: 'no'
       })
+      favRemove.currentTime = 0.3;
+      favRemove.volume = 0.4;
+      favRemove.play();
     } else {
       this.setState({
-        favorite: true
+        favorite: 'yes'
       })
+      favAdd.currentTime = 1.1;
+      favAdd.volume = 0.4;
+      favAdd.play();
     }
   }
 
@@ -104,24 +113,24 @@ class ShowDetails extends React.Component {
 
       <React.Fragment>
 
-        {characterToDisplay.favorite &&  (
+        {characterToDisplay.favorite === 'yes' &&  (
           <div className="favorite__container">
             <h3 className="favorite__text-important">{characterToDisplay.name} is one of your favorite characters</h3>
             <p className="favorite__text">Click on its card to remove {himHer} from your favorites</p>
           </div>
         )}
-        {!characterToDisplay.favorite &&  (
+        {characterToDisplay.favorite === 'no' &&  (
           <div className="favorite__container">
             <p className="favorite__text">Click on the card to add {characterToDisplay.name} to your favorites.</p>
           </div>
         )}
 
         <div className="character__details--box" onClick={this.add2Favorites}>
-          <img src={favorites} alt="Favorite icon" className={`favorite__icon--details  ${characterToDisplay.favorite && "favorited"}`}/>
+          <img src={favorites} alt="Favorite icon" className={`favorite__icon--details  ${characterToDisplay.favorite === 'yes' && "favorited"}`}/>
           <div className="character__details--photoBox" style={{backgroundImage: "url(" + characterToDisplay.image + ")"}}>
             <img src={characterToDisplay.image} alt="" className="character__details--photo"/>
           </div>
-          <div className="character__details--infoBox">
+          <div className={`character__details--infoBox  ${characterToDisplay.favorite === 'yes' && "favorited"}`}>
             <h2 className="character__details--name"><span className="status">{deadIcon}</span> {characterToDisplay.name}</h2>
             <ul className="character__details--infoList">
               <li className="character__details--infoItem">

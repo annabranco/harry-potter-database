@@ -19,6 +19,8 @@ class ShowCharacters extends React.Component {
           filterByDead={this.props.filterByDead}
           searchAliveOrDead={this.props.searchAliveOrDead}
           resetFilters={this.props.resetFilters}
+          filterByFavorites={this.props.filterByFavorites}
+          seachByFavorites={this.props.seachByFavorites}
         />
         <CharacterList
           characters={this.props.characters}
@@ -27,6 +29,7 @@ class ShowCharacters extends React.Component {
           filterCharacters={this.props.filterCharacters}
           searchByHouse={this.props.searchByHouse}
           searchCharactersIsAlive={this.props.searchCharactersIsAlive}
+          seachByFavorites={this.props.seachByFavorites}
         />
 
       </React.Fragment>

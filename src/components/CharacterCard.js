@@ -24,7 +24,7 @@ class CharacterCard extends React.Component {
 
   render () {
 
-    if ((this.props.searchString !== '' || this.props.searchCharactersIsAlive !== '') && this.props.searchResults.length === 0) {
+    if ((this.props.searchString !== '' || this.props.searchCharactersIsAlive !== '') && this.props.searchResults.length === 0 || this.props.seachByFavorites === "yes") {
       return (
         <React.Fragment>
           <p className="no__results">Sorry. There are no results matching your filters.</p>
@@ -38,6 +38,13 @@ class CharacterCard extends React.Component {
 
           {this.props.characters.length > 25 &&
             this.props.characters
+            .filter(character => {
+if (this.props.seachByFavorites === "yes") {
+return character.favorite.includes(this.props.seachByFavorites)
+} else {
+return character.name.length > 0
+}
+})
             .filter(character => character.name.toLowerCase().includes(this.props.searchString.toLowerCase()))
             .filter(character => character.house.includes(this.props.searchByHouse))
             .filter(character => character.estado.includes(this.props.searchCharactersIsAlive))
@@ -45,11 +52,11 @@ class CharacterCard extends React.Component {
               return (
                 <Link to={'character/' + character.id} className="link" onMouseOver={this.hoverCharacter} onClick={this.selectCharacter}>
                 <li className="characterCard" key={character.id} id={character.id}>
-              <img src={favorites} alt="Favorite icon" className={`favorite__icon  ${character.favorite && "favorited"}`}/>
+                  <img src={favorites} alt="Favorite icon" className={`favorite__icon  ${character.favorite === 'yes' && "favorited"}`}/>
                   <div className="characterCard__photo-box" style={{backgroundImage: "url(" + character.image + ")"}}>
                     <img src={character.image} alt={character.name} className="characterCard__photo"/>
                   </div>
-                  <div className="characterCard__info">
+                  <div className={`characterCard__info  ${character.favorite === 'yes' && "favorited"}`}>
                     <h2 className="characterCard__name">{character.name}</h2>
                     <p className="characterCard__house">{character.house}</p>
                   </div>

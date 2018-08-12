@@ -7,8 +7,6 @@
   height: 380px;
   box-shadow: 0 7px 15px 4px rgba(0, 0, 0, 0.4);
   overflow: hidden; }
-  .characterCard.favorited {
-    border: 1px solid #593b28; }
   .characterCard:hover {
     box-shadow: 0 0 20px 10px rgba(177, 158, 30, 0.63); }
     .characterCard:hover .characterCard__info,
