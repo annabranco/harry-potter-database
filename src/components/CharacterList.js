@@ -14,6 +14,10 @@ class CharacterList extends React.Component {
             characters={this.props.characters}
             searchString={this.props.searchString}
             searchResults={this.props.searchResults}
+            filterCharacters={this.props.filterCharacters}
+            searchByHouse={this.props.searchByHouse}
+            searchCharactersIsAlive={this.props.searchCharactersIsAlive}
+            seachByFavorites={this.props.seachByFavorites}
           />
 
         </ul>

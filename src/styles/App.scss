@@ -1,0 +1,43 @@
+body {
+  background-image     : linear-gradient(to top, rgba(39, 64, 70, 0.6), rgba(230, 218, 218, 0.7)),url('../images/wp-parchment.jpg');
+  background-size      : 100% 100vh, 100% 100vh;
+  background-attachment: fixed;
+}
+
+.App {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+}
+
+.main__box {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 100vw;
+  margin-top     : 20px;
+}
+
+.main__cardsArea {
+  display              : grid;
+  grid-template-columns: 220px;
+  grid-gap             : 30px;
+  padding              : 0 0 0 30px;
+  margin               : -150px auto 30px;
+
+  @media all and (min-width: 590px) {
+    grid-template-columns: repeat(2, 220px);
+  }
+
+  @media all and (min-width: 810px) {
+    grid-template-columns: repeat(3, 220px);
+  }
+  @media all and (min-width: 1050px) {
+    grid-template-columns: repeat(4, 220px);
+  }
+}
+
+.link {
+  text-decoration: none;
+}
