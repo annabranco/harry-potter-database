@@ -42,7 +42,7 @@
   },
   {
     "id": "1111051albusdumbledore",
-    "_name": "Albus Dumbledore",
+    "name": "Albus Dumbledore",
     "fullname": "Albus Percival Wulfric Brian Dumbledore",
     "aka": [],
     "dateOfBirth": "",
@@ -53,7 +53,7 @@
     "yearOfDeath": 1997,
     "ancestry": "half-blood",
     "species": "human",
-    "gender": "female",
+    "gender": "male",
     "height": 5.11,
     "skinColour": "light",
     "eyeColour": "blue",
