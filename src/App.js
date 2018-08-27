@@ -120,7 +120,7 @@ manageComplementaryData() {
     //======== Flags as favorite if it is favorited in localStorage
     const fixedId = character.id.substring(0, character.id.length-4);
 
-    if (JSON.parse(localStorage.getItem('API Harry Potter DB favorites').indexOf(fixedId) > -1)) {
+    if ( (JSON.parse(localStorage.getItem('API Harry Potter DB favorites')) !== null) && (JSON.parse(localStorage.getItem('API Harry Potter DB favorites').indexOf(fixedId) > -1)) ) {
       character.favorite = 'yes';
     } else {
       character.favorite = 'no'
