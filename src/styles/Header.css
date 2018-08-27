@@ -39,7 +39,7 @@
   .parchment:hover .parchmentMiddleDIV {
     display: block;
     width: 80vw;
-    transition: width ease-out 2.5s; }
+    transition: width ease-out 1.2s; }
     @media all and (min-width: 500px) {
       .parchment:hover .parchmentMiddleDIV {
         width: 83vw; } }
@@ -67,7 +67,7 @@
   background-position: left;
   background-repeat: repeat-x;
   overflow: hidden;
-  transition: width ease-out 1s; }
+  transition: width ease-out 0.5s; }
 
 .parchmentRightDIV {
   z-index: 2;
