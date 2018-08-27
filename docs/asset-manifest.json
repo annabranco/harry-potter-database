@@ -1,11 +1,23 @@
 {
-  "main.css": "static/css/main.fbcb1cd8.css",
-  "main.css.map": "static/css/main.fbcb1cd8.css.map",
-  "main.js": "static/js/main.ec889717.js",
-  "main.js.map": "static/js/main.ec889717.js.map",
+  "main.css": "static/css/main.b88c3074.css",
+  "main.css.map": "static/css/main.b88c3074.css.map",
+  "main.js": "static/js/main.fbffd73a.js",
+  "main.js.map": "static/js/main.fbffd73a.js.map",
+  "static/media/back.gif": "static/media/back.4341c342.gif",
+  "static/media/favorites.png": "static/media/favorites.ca5414f6.png",
   "static/media/gryffindor.png": "static/media/gryffindor.8b38a8a7.png",
   "static/media/hogwarts.png": "static/media/hogwarts.c711fa22.png",
+  "static/media/hp-title.png": "static/media/hp-title.9a54f1cc.png",
   "static/media/hufflepuff.png": "static/media/hufflepuff.f3f0cda4.png",
+  "static/media/logo-adalab.png": "static/media/logo-adalab.5f4b15be.png",
+  "static/media/logo-anna-rabbit.gif": "static/media/logo-anna-rabbit.04808435.gif",
+  "static/media/logo-hp-api.png": "static/media/logo-hp-api.3194b921.png",
+  "static/media/logo-react.svg": "static/media/logo-react.5d5d9eef.svg",
+  "static/media/noresults.gif": "static/media/noresults.38439a68.gif",
+  "static/media/parchment-left.png": "static/media/parchment-left.86fdd030.png",
+  "static/media/parchment-middle.png": "static/media/parchment-middle.9945a5a4.png",
+  "static/media/parchment-right.png": "static/media/parchment-right.8d612ffc.png",
   "static/media/ravenclaw.png": "static/media/ravenclaw.b8ffac7a.png",
-  "static/media/slytherin.png": "static/media/slytherin.7aa394fe.png"
+  "static/media/slytherin.png": "static/media/slytherin.7aa394fe.png",
+  "static/media/wp-parchment.jpg": "static/media/wp-parchment.126035b9.jpg"
 }
