@@ -6,7 +6,7 @@ import ShowDetails from './components/ShowDetails';
 import Footer from './components/Footer';
 import './styles/App.css';
 
-const url = 'http://hp-api.herokuapp.com/api/characters';
+const url = 'https://hp-api.herokuapp.com/api/characters';
 const newCharacters = 'https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/new-characters.json';
 
 class App extends Component {
