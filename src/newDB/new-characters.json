@@ -206,5 +206,47 @@
 		"patronus": "",
 		"actor": ["Charlotte Skeoch","Louisa Warren"],
 		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbot.jpg"
-	}
+	},
+	{
+      "id": "1310000dudleydursley",
+      "name": "Dudley Dursley",
+      "fullname": "Dudley Dursley",
+      "aka": ["Dud"],
+      "dateOfBirth": "23/06/1980",
+      "yearOfBirth": 1980,
+      "alive": true,
+      "dateOfDeath": "",
+      "yearOfDeath": 0,
+      "ancestry": "muggle",
+      "species": "human",
+      "gender": "male",
+      "height": 0,
+      "skinColour": "Light",
+      "eyeColour": "Blue",
+      "hairColour": "Blond",
+      "country": "",
+      "occupation": "",
+      "hogwartsStudent": false,
+      "ishogwartsStudent": "no",
+      "hogwartsStaff": false,
+      "house": "",
+      "relatives": {
+        "parents": ["Petunia Dursley","Vernon Dursley"],
+        "spouse": [],
+        "children": [],
+        "siblings": [],
+        "friends": []
+      },
+      "associations": {
+        "member": []
+      },
+      "wand": {
+        "wood": "",
+        "core": "",
+        "length": 0
+      },
+      "patronus": "",
+      "actor": ["Harry Melling"],
+      "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/DudleyDursley.jpg"
+    }
 ]
