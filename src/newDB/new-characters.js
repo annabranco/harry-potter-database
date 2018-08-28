@@ -1,3 +1,12 @@
+import AlbusDumbledore from './AlbusDumbledore.jpg';
+import DudleyDursley from './DudleyDursley.jpg';
+import FatFriar from './FatFriar.jpg';
+import FleurDelacour from './FleurDelacour.jpg';
+import GilderoyLockhart from './GilderoyLockhart.jpg';
+import HannahAbbott from './HannahAbbott.jpg';
+import NymphadoraTonks from './NymphadoraTonks.jpg';
+
+
 export default [
 	{
 		"id": "1211054nymphadoratonks",
@@ -38,7 +47,7 @@ export default [
 		},
 		"patronus": "Rabbit/Wolf",
 		"actor": ["Natalia Tena"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/NymphadoraTonks.jpg"
+		"image": NymphadoraTonks
 	},
 	{
 		"id": "1111051albusdumbledore",
@@ -79,7 +88,7 @@ export default [
 		},
 		"patronus": "Phoenix",
 		"actor": ["Michael Gambon"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/AlbusDumbledore.jpg"
+		"image": AlbusDumbledore
 	},
 	{
 		"id": "1211000fleurdelacour",
@@ -121,7 +130,7 @@ export default [
 		},
 		"patronus": "",
 		"actor": ["Clémence Poésy"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/FleurDelacour.jpg"
+		"image": FleurDelacour
 	},
 	{
 		"id": "1310053gilderoylockhart",
@@ -163,7 +172,7 @@ export default [
 		},
 		"patronus": "Non-corporeal",
 		"actor": ["Kenneth Branagh"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/GilderoyLockhart.jpg"
+		"image": GilderoyLockhart
 	},
 	{
 		"id": "1311004hannahabbott",
@@ -205,7 +214,7 @@ export default [
 		},
 		"patronus": "",
 		"actor": ["Charlotte Skeoch","Louisa Warren"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbot.jpg"
+		"image": HannahAbbott
 	},
 	{
       "id": "1310000dudleydursley",
@@ -247,6 +256,48 @@ export default [
       },
       "patronus": "",
       "actor": ["Harry Melling"],
-      "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/DudleyDursley.jpg"
-    }
+      "image": DudleyDursley
+  },
+  {
+    "id": "1311054fatfriar",
+    "name": "Fat Friar",
+    "fullname": "The Fat Friar",
+    "aka": [],
+    "dateOfBirth": "",
+    "yearOfBirth": 982,
+    "alive": false,
+    "dateOfDeath": "",
+    "yearOfDeath": 0,
+    "ancestry": "",
+    "species": "ghost",
+    "gender": "male",
+    "height": 0,
+    "skinColour": "Light",
+    "eyeColour": "",
+    "hairColour": "Brown",
+    "country": "United Kingdom",
+    "occupation": "Hufflepuff House Ghost",
+    "hogwartsStudent": false,
+    "ishogwartsStudent": "former",
+    "hogwartsStaff": true,
+    "house": "Hufflepuff",
+    "relatives": {
+      "parents": [],
+      "spouse": [],
+      "children": [],
+      "siblings": [],
+      "friends": []
+    },
+    "associations": {
+      "member": []
+    },
+    "wand": {
+      "wood": "",
+      "core": "",
+      "length": 0
+    },
+    "patronus": "",
+    "actor": ["Simon Fisher-Becker"],
+    "image": FatFriar
+  }
 ]

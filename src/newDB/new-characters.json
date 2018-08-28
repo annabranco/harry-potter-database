@@ -205,7 +205,7 @@
 		},
 		"patronus": "",
 		"actor": ["Charlotte Skeoch","Louisa Warren"],
-		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbot.jpg"
+		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbott.jpg"
 	},
 	{
       "id": "1310000dudleydursley",
@@ -248,5 +248,47 @@
       "patronus": "",
       "actor": ["Harry Melling"],
       "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/DudleyDursley.jpg"
-    }
+  },
+  {
+    "id": "1311054fatfriar",
+    "name": "Fat Friar",
+    "fullname": "The Fat Friar",
+    "aka": [],
+    "dateOfBirth": "",
+    "yearOfBirth": 982,
+    "alive": false,
+    "dateOfDeath": "",
+    "yearOfDeath": 0,
+    "ancestry": "",
+    "species": "ghost",
+    "gender": "male",
+    "height": 0,
+    "skinColour": "Light",
+    "eyeColour": "",
+    "hairColour": "Brown",
+    "country": "United Kingdom",
+    "occupation": "Hufflepuff House Ghost",
+    "hogwartsStudent": false,
+    "ishogwartsStudent": "former",
+    "hogwartsStaff": true,
+    "house": "Hufflepuff",
+    "relatives": {
+      "parents": [],
+      "spouse": [],
+      "children": [],
+      "siblings": [],
+      "friends": []
+    },
+    "associations": {
+      "member": []
+    },
+    "wand": {
+      "wood": "",
+      "core": "",
+      "length": 0
+    },
+    "patronus": "",
+    "actor": ["Simon Fisher-Becker"],
+    "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/FatFriar.jpg"
+  }
 ]
