@@ -37,8 +37,8 @@
       "length": 11
     },
     "patronus": "Rabbit/Wolf",
-    "actor": "Natalia Tena",
-    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/NymphadoraTonks.jpg"
+    "actor": ["Natalia Tena"],
+    "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/NymphadoraTonks.jpg"
   },
   {
     "id": "1111051albusdumbledore",
@@ -78,8 +78,8 @@
       "length": 15
     },
     "patronus": "Phoenix",
-    "actor": "Michael Gambon",
-    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/AlbusDumbledore.jpg"
+    "actor": ["Michael Gambon"],
+    "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/AlbusDumbledore.jpg"
   },
   {
     "id": "1211000fleurdelacour",
@@ -120,7 +120,91 @@
       "length": 9.5
     },
     "patronus": "",
-    "actor": "Clémence Poésy",
-    "image": "https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/FleurDelacour.jpg"
-  }
+    "actor": ["Clémence Poésy"],
+    "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/FleurDelacour.jpg"
+},
+{
+  "id": "1310053gilderoylockhart",
+  "name": "Gilderoy Lockhart",
+  "fullname": "Gilderoy Lockhart",
+  "aka": [],
+  "dateOfBirth": "26/01/1964",
+  "yearOfBirth": 1964,
+  "alive": true,
+  "dateOfDeath": "",
+  "yearOfDeath": 0,
+  "ancestry": "half-blood",
+  "species": "human",
+  "gender": "male",
+  "height": 0,
+  "skinColour": "light",
+  "eyeColour": "blue",
+  "hairColour": "blond",
+  "country": "United Kingdom",
+  "occupation": "Professor",
+  "hogwartsStudent": false,
+  "ishogwartsStudent": "former",
+  "hogwartsStaff": true,
+  "house": "Ravenclaw",
+  "relatives": {
+	"parents": [],
+	"spouse": [],
+	"children": [],
+	"siblings": [],
+	"friends": []
+  },
+  "associations": {
+	"member": ["Order of Merlin"]
+  },
+  "wand": {
+	"wood": "Charry",
+	"core": "Dragon heart-string",
+	"length": 9
+  },
+  "patronus": "Non-corporeal",
+  "actor": ["Kenneth Branagh"],
+  "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/GilderoyLockhart.jpg"
+},
+{
+  "id": "1311004hannahabbott",
+  "name": "Hannah Abbott",
+  "fullname": "Hannah Longbottom",
+  "aka": [],
+  "dateOfBirth": "",
+  "yearOfBirth": 1880,
+  "alive": true,
+  "dateOfDeath": "",
+  "yearOfDeath": 0,
+  "ancestry": "half-blood",
+  "species": "human",
+  "gender": "female",
+  "height": 0,
+  "skinColour": "Light",
+  "eyeColour": "",
+  "hairColour": "Blond",
+  "country": "Great Britain",
+  "occupation": "Prefect",
+  "hogwartsStudent": true,
+  "ishogwartsStudent": "yes",
+  "hogwartsStaff": false,
+  "house": "Hufflepuff",
+  "relatives": {
+	"parents": [],
+	"spouse": ["Neville Longbottom"],
+	"children": [],
+	"siblings": [],
+	"friends": []
+  },
+  "associations": {
+	"member": ["Dumbledore's Army"]
+  },
+  "wand": {
+	"wood": "",
+	"core": "",
+	"length": 0
+  },
+  "patronus": "",
+  "actor": ["Charlotte Skeoch","Louisa Warren"],
+  "image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbot.jpg"
+},
 ]
