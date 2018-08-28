@@ -5,9 +5,10 @@ import ShowCharacters from './components/ShowCharacters';
 import ShowDetails from './components/ShowDetails';
 import Footer from './components/Footer';
 import './styles/App.css';
+import newCharactersLocal from './newDB/new-characters';
 
 const url = 'https://hp-api.herokuapp.com/api/characters';
-const newCharacters = 'https://raw.githubusercontent.com/Adalab/dorcas-s3-evaluacion-final-annabranco/master/src/newDB/new-characters.json';
+const newCharacters = 'https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/new-characters.json';
 
 class App extends Component {
 
@@ -65,6 +66,7 @@ class App extends Component {
 addMissingCharacters() {
   const charactersArray = this.state.characters;
 
+//FETCH FROM EXTERNAL
   fetch(newCharacters)
   .then(res => res.json())
   .then(data => {
@@ -74,6 +76,13 @@ addMissingCharacters() {
     }
     this.manageComplementaryData();
   });
+
+// USE LOCAL DB FOR TESTS
+  // for (const newCharacter of newCharactersLocal) {
+  //   charactersArray.push(newCharacter)
+  // }
+  // this.manageComplementaryData();
+
 }
 
 //======== Manages ID, missing data and other information for each character

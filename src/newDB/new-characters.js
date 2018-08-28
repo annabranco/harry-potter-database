@@ -1,4 +1,4 @@
-[
+export default [
 	{
 		"id": "1211054nymphadoratonks",
 		"name": "Nymphadora Tonks",
@@ -206,5 +206,5 @@
 		"patronus": "",
 		"actor": ["Charlotte Skeoch","Louisa Warren"],
 		"image": "https://raw.githubusercontent.com/annabranco/harry-potter-database/master/src/newDB/HannahAbbot.jpg"
-	}
+	},
 ]

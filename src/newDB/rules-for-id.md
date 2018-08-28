@@ -39,7 +39,7 @@ _Example:_
 
   {
     "id": "",
-    "_name": "",
+    "name": "",
     "fullname": "",
     "aka": [],
     "dateOfBirth": "",
@@ -76,6 +76,6 @@ _Example:_
       "length": 0
     },
     "patronus": "",
-    "actor": "",
+    "actor": [""],
     "image": ""
   },
